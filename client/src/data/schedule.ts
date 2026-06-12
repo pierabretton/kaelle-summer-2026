@@ -86,11 +86,11 @@ export const ACTIVITY_META: Record<
     label: "Teddy Tennis",
   },
   tbc: {
-    color: "text-gray-700",
-    bg: "bg-[#E0E0E0]",
-    border: "border-[#BDBDBD]",
-    icon: "❓",
-    label: "TBC",
+    color: "text-white",
+    bg: "bg-[#D81B60]",
+    border: "border-[#D81B60]",
+    icon: "🌸",
+    label: "Piera's Week",
   },
 };
 
@@ -147,20 +147,20 @@ const TENNIS_INFO = {
 // Wed Jul 8: tennis 3:10–4pm · Fri Jul 10: tennis 4–5pm
 const week0Days: DaySchedule[] = [
   day("2026-07-06", "Mon · Jul 6", [
-    block("09:00", "18:00", "tbc", "TBC", "❓", { note: "Activities to be confirmed" }),
+    block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
   ]),
   day("2026-07-07", "Tue · Jul 7", [
-    block("09:00", "18:00", "tbc", "TBC", "❓", { note: "Activities to be confirmed" }),
+    block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
   ]),
   day("2026-07-08", "Wed · Jul 8", [
-    block("09:00", "15:10", "tbc", "TBC", "❓", { note: "Activities to be confirmed" }),
+    block("09:00", "15:10", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
     block("15:10", "16:00", "tennis", "Teddy Tennis", "🎾", TENNIS_INFO),
   ]),
   day("2026-07-09", "Thu · Jul 9", [
-    block("09:00", "18:00", "tbc", "TBC", "❓", { note: "Activities to be confirmed" }),
+    block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
   ]),
   day("2026-07-10", "Fri · Jul 10", [
-    block("09:00", "16:00", "tbc", "TBC", "❓", { note: "Activities to be confirmed" }),
+    block("09:00", "16:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
     block("16:00", "17:00", "tennis", "Teddy Tennis", "🎾", TENNIS_INFO),
   ]),
 ];
@@ -277,7 +277,7 @@ export const MALLORCA_BLOCK = {
 export const WEEKS: WeekGroup[] = [
   {
     id: "week0",
-    title: "Week 1 — TBC",
+    title: "Week 1 — Piera's Week",
     subtitle: "July 6 – 10",
     dateRange: "Jul 6–10, 2026",
     days: week0Days,
