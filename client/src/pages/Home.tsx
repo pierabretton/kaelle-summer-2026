@@ -1,8 +1,8 @@
 // ============================================================
 // Design: Modern Playful Storybook
 // Fredoka One display + Poppins body
-// Activity colors: coral, purple, pink, teal, golden, green
-// Layout: hero banner → legend → week cards → holiday banner
+// Activity colors: coral, purple, pink, teal, golden, green, rose
+// Layout: hero → legend → venue reference cards → week cards → holiday banner
 // ============================================================
 
 import { useState } from "react";
@@ -14,6 +14,46 @@ import {
   type TimeBlock,
 } from "@/data/schedule";
 
+// ── All venue reference data ──────────────────────────────────
+const VENUE_REFS = [
+  {
+    activity: "summer-camp" as ActivityType,
+    name: "Dakodas Summer Camp",
+    address: "More House School, 22-24 Pont Street, Knightsbridge, SW1X 0AA",
+    addressUrl: "https://maps.google.com/?q=22-24+Pont+Street+Knightsbridge+London+SW1X+0AA",
+    websiteUrl: "https://dakodas.co.uk/products/summer-camp-2026-holiday-camps?variant=52749716062540",
+    websiteLabel: "dakodas.co.uk",
+    detail: "Performing arts camp · Ages 4–17 · Dance, drama, acrobatics & musical theatre",
+  },
+  {
+    activity: "ballet-camp" as ActivityType,
+    name: "Kensington Ballet School",
+    address: "Christchurch, Victoria Road, W8 5RQ",
+    addressUrl: "https://maps.google.com/?q=Christchurch+Victoria+Road+London+W8+5RQ",
+    websiteUrl: "https://the-kensington-ballet-school.classforkids.io/camp/63",
+    websiteLabel: "Book ballet camp place",
+    detail: "Holiday Camp · Ages approx 3–6 · Mon 20 – Fri 24 Jul · 9:00am–12:00 midday",
+  },
+  {
+    activity: "calmar-kids" as ActivityType,
+    name: "Kalmar Kids Camp",
+    address: "Tadpoles Nursery, The Studio, 8 Hornton Place, Kensington, W8 4LZ",
+    addressUrl: "https://maps.google.com/?q=8+Hornton+Place+Kensington+London+W8+4LZ",
+    websiteUrl: "https://www.kalmerkids.com/classes",
+    websiteLabel: "kalmerkids.com",
+    detail: "Nature play, mindfulness & creative calm · Ages 3–8 · 8:45am–2pm",
+  },
+  {
+    activity: "tennis" as ActivityType,
+    name: "Teddy Tennis Holland Park",
+    address: "Court 3, Holland Park, London W8 6LU",
+    addressUrl: "https://maps.google.com/?q=Holland+Park+Court+3+London+W8+6LU",
+    websiteUrl: "https://teddytennisuk.co.uk/centre/holland-park/",
+    websiteLabel: "teddytennisuk.co.uk",
+    detail: "Court 3, next to the outside gym on the High Street Kensington side of the park",
+  },
+];
+
 // ── Legend pill ───────────────────────────────────────────────
 function LegendPill({ type }: { type: ActivityType }) {
   const meta = ACTIVITY_META[type];
@@ -24,6 +64,45 @@ function LegendPill({ type }: { type: ActivityType }) {
       <span>{meta.icon}</span>
       {meta.label}
     </span>
+  );
+}
+
+// ── Venue reference card ──────────────────────────────────────
+function VenueCard({ venue }: { venue: typeof VENUE_REFS[0] }) {
+  const meta = ACTIVITY_META[venue.activity];
+  return (
+    <div className={`rounded-2xl border-2 ${meta.border} bg-white shadow-sm overflow-hidden`}>
+      {/* Coloured header strip */}
+      <div className={`${meta.bg} px-4 py-2 flex items-center gap-2`}>
+        <span className="text-lg">{meta.icon}</span>
+        <span className={`font-bold text-sm ${meta.color}`}>{venue.name}</span>
+      </div>
+      <div className="px-4 py-3 space-y-2 text-sm text-gray-700">
+        <p className="text-gray-500 text-xs leading-snug">{venue.detail}</p>
+        <div className="flex items-start gap-1.5">
+          <span className="mt-0.5 flex-shrink-0">📍</span>
+          <a
+            href={venue.addressUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline leading-snug"
+          >
+            {venue.address}
+          </a>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="flex-shrink-0">🔗</span>
+          <a
+            href={venue.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            {venue.websiteLabel}
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -41,7 +120,6 @@ function VenuePopup({ block: b, onClose }: { block: TimeBlock; onClose: () => vo
         onClick={(e) => e.stopPropagation()}
         style={{ animation: "popIn 0.2s cubic-bezier(0.23,1,0.32,1) both" }}
       >
-        {/* Header */}
         <div className={`flex items-center gap-3 mb-4 p-3 rounded-2xl ${meta.bg}`}>
           <span className="text-2xl">{b.icon}</span>
           <div>
@@ -55,26 +133,15 @@ function VenuePopup({ block: b, onClose }: { block: TimeBlock; onClose: () => vo
             ×
           </button>
         </div>
-
         <div className="space-y-3 text-sm text-gray-700">
-          {/* Note */}
-          {b.note && (
-            <p className="text-gray-600 leading-relaxed">{b.note}</p>
-          )}
-
-          {/* Address */}
+          {b.note && <p className="text-gray-600 leading-relaxed">{b.note}</p>}
           {b.address && (
             <div className="flex items-start gap-2">
               <span className="text-base mt-0.5">📍</span>
               <div>
                 <div className="font-semibold text-gray-800 text-xs uppercase tracking-wide mb-0.5">Address</div>
                 {b.addressUrl ? (
-                  <a
-                    href={b.addressUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline leading-snug"
-                  >
+                  <a href={b.addressUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline leading-snug">
                     {b.address}
                   </a>
                 ) : (
@@ -83,19 +150,12 @@ function VenuePopup({ block: b, onClose }: { block: TimeBlock; onClose: () => vo
               </div>
             </div>
           )}
-
-          {/* Website link */}
           {b.websiteUrl && (
             <div className="flex items-center gap-2">
               <span className="text-base">🔗</span>
               <div>
                 <div className="font-semibold text-gray-800 text-xs uppercase tracking-wide mb-0.5">Website</div>
-                <a
-                  href={b.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
+                <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                   {b.websiteLabel ?? b.websiteUrl}
                 </a>
               </div>
@@ -124,20 +184,14 @@ function ActivityPill({ block: b }: { block: TimeBlock }) {
           select-none
         `}
         onClick={() => hasDetails && setOpen(true)}
-        title={hasDetails ? "Click for details" : undefined}
       >
         <span className="text-base leading-none flex-shrink-0">{b.icon}</span>
         <div className="flex flex-col min-w-0">
           <span className="leading-tight truncate">{b.label}</span>
-          <span className="text-xs font-normal opacity-90 mt-0.5">
-            {b.start} – {b.end}
-          </span>
+          <span className="text-xs font-normal opacity-90 mt-0.5">{b.start} – {b.end}</span>
         </div>
-        {hasDetails && (
-          <span className="ml-auto text-white/70 text-xs flex-shrink-0">ℹ️</span>
-        )}
+        {hasDetails && <span className="ml-auto text-white/80 text-xs flex-shrink-0">ℹ️</span>}
       </div>
-
       {open && <VenuePopup block={b} onClose={() => setOpen(false)} />}
     </>
   );
@@ -162,38 +216,18 @@ function DayColumn({ day }: { day: import("@/data/schedule").DaySchedule }) {
 }
 
 // ── Week card ─────────────────────────────────────────────────
-function WeekCard({
-  week,
-  index,
-}: {
-  week: import("@/data/schedule").WeekGroup;
-  index: number;
-}) {
-  const tints = [
-    "bg-pink-50",   // week0: Piera
-    "bg-orange-50", // week1: Summer Camp
-    "bg-fuchsia-50", // week2: Ballet
-    "bg-teal-50",   // week3: Kalmar
-    "bg-teal-50",   // week4: Kalmar
-    "bg-teal-50",   // week5: Kalmar
-  ];
+function WeekCard({ week, index }: { week: import("@/data/schedule").WeekGroup; index: number }) {
+  const tints = ["bg-pink-50", "bg-orange-50", "bg-fuchsia-50", "bg-teal-50", "bg-teal-50", "bg-teal-50"];
   const tint = tints[index] ?? "bg-gray-50";
 
   return (
     <div
       className={`rounded-3xl border border-gray-200 shadow-md overflow-hidden ${tint}`}
-      style={{
-        animationDelay: `${index * 80}ms`,
-        animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both",
-      }}
+      style={{ animationDelay: `${index * 80}ms`, animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both" }}
     >
-      {/* Card header */}
       <div className="px-6 pt-5 pb-3 border-b border-gray-200/70">
         <div className="flex items-baseline gap-3 flex-wrap">
-          <h2
-            className="text-xl font-bold text-gray-800"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
+          <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "'Fredoka One', cursive" }}>
             {week.title}
           </h2>
           <span className="text-sm font-medium text-gray-500 bg-white/70 rounded-full px-3 py-0.5 border border-gray-200">
@@ -201,8 +235,6 @@ function WeekCard({
           </span>
         </div>
       </div>
-
-      {/* Days grid */}
       <div className="p-4 overflow-x-auto">
         <div className="grid grid-cols-5 gap-3 min-w-[640px]">
           {week.days.map((d) => (
@@ -210,8 +242,6 @@ function WeekCard({
           ))}
         </div>
       </div>
-
-      {/* Tap hint */}
       <div className="px-6 pb-4 text-xs text-gray-400 flex items-center gap-1">
         <span>ℹ️</span> Tap any activity with an info icon for venue details &amp; links
       </div>
@@ -219,7 +249,7 @@ function WeekCard({
   );
 }
 
-// ── Mallorca holiday banner ────────────────────────────────────
+// ── Mallorca holiday banner ───────────────────────────────────
 function MallorcaBanner() {
   return (
     <div
@@ -227,29 +257,20 @@ function MallorcaBanner() {
       style={{
         background: "linear-gradient(135deg, #FFB300 0%, #FF8F00 50%, #FF6F00 100%)",
         animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both",
-        animationDelay: "400ms",
+        animationDelay: "480ms",
       }}
     >
       <div className="px-8 py-8 flex flex-col sm:flex-row items-center gap-6">
         <div className="text-6xl sm:text-7xl leading-none select-none">🌴</div>
         <div className="text-center sm:text-left">
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-1"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Fredoka One', cursive" }}>
             Holiday in Mallorca!
           </h2>
-          <p className="text-white/90 text-lg font-medium">
-            August 20 – October 31, 2025
-          </p>
-          <p className="text-white/75 text-sm mt-1">
-            Family holiday — away for 10 weeks ☀️🏖️
-          </p>
+          <p className="text-white/90 text-lg font-medium">August 20 – October 31, 2026</p>
+          <p className="text-white/75 text-sm mt-1">Family holiday — away for 10 weeks ☀️🏖️</p>
         </div>
         <div className="sm:ml-auto flex gap-3 text-4xl select-none">
-          <span>🌊</span>
-          <span>🐚</span>
-          <span>⛵</span>
+          <span>🌊</span><span>🐚</span><span>⛵</span>
         </div>
       </div>
     </div>
@@ -259,10 +280,8 @@ function MallorcaBanner() {
 // ── Main page ─────────────────────────────────────────────────
 export default function Home() {
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "#FAFAF8", fontFamily: "'Poppins', sans-serif" }}
-    >
+    <div className="min-h-screen" style={{ background: "#FAFAF8", fontFamily: "'Poppins', sans-serif" }}>
+
       {/* ── Hero banner ── */}
       <div className="relative w-full overflow-hidden" style={{ maxHeight: 320 }}>
         <img
@@ -276,11 +295,8 @@ export default function Home() {
             className="bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-5 shadow-xl text-center mx-4"
             style={{ animation: "fadeSlideUp 0.6s cubic-bezier(0.23,1,0.32,1) both" }}
           >
-            <h1
-              className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight"
-              style={{ fontFamily: "'Fredoka One', cursive" }}
-            >
-              🌟 Kaelle Sola's Summer 2025
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight" style={{ fontFamily: "'Fredoka One', cursive" }}>
+              🌟 Kaelle Sola's Summer 2026
             </h1>
             <p className="text-gray-600 text-base sm:text-lg mt-1 font-medium">
               A fun-filled summer of camps, ballet &amp; adventures!
@@ -294,17 +310,29 @@ export default function Home() {
         {/* ── Activity legend ── */}
         <div
           className="bg-white rounded-3xl border border-gray-200 shadow-sm px-6 py-5"
-          style={{ animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both", animationDelay: "100ms" }}
+          style={{ animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both", animationDelay: "80ms" }}
         >
-          <h2
-            className="text-lg font-bold text-gray-700 mb-3"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
+          <h2 className="text-lg font-bold text-gray-700 mb-3" style={{ fontFamily: "'Fredoka One', cursive" }}>
             Activity Legend
           </h2>
           <div className="flex flex-wrap gap-2">
             {(Object.keys(ACTIVITY_META) as ActivityType[]).map((type) => (
               <LegendPill key={type} type={type} />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Venue reference cards ── */}
+        <div
+          className="bg-white rounded-3xl border border-gray-200 shadow-sm px-6 py-5"
+          style={{ animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both", animationDelay: "140ms" }}
+        >
+          <h2 className="text-lg font-bold text-gray-700 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
+            📍 Venues &amp; Booking Links
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {VENUE_REFS.map((v) => (
+              <VenueCard key={v.name} venue={v} />
             ))}
           </div>
         </div>
