@@ -69,7 +69,7 @@ export const ACTIVITY_META: Record<
     bg: "bg-[#26A69A]",
     border: "border-[#26A69A]",
     icon: "🌿",
-    label: "Kalmar Kids Camp",
+    label: "Kalmer Kids Camp",
   },
   mallorca: {
     color: "text-white",
@@ -127,11 +127,19 @@ const BALLET_INFO = {
   note: "Kensington Ballet School Holiday Camp · Ages approx 3–6 · Mon 20 – Fri 24 Jul · 9:00am–12:00 midday",
 };
 
+const BALLET_CLASS_INFO = {
+  address: "St Philip's Church, Earls Court Road, London",
+  addressUrl: "https://maps.google.com/?q=St+Philips+Church+Earls+Court+Road+London",
+  websiteUrl: "https://the-kensington-ballet-school.classforkids.io/camp/63",
+  websiteLabel: "Kensington Ballet School",
+  note: "Weekly ballet class at St Philip's Church, Earls Court Road",
+};
+
 const KALMAR_INFO = {
   address: "Tadpoles Nursery, The Studio, 8 Hornton Place, Kensington, W8 4LZ",
   addressUrl: "https://maps.google.com/?q=8+Hornton+Place+Kensington+London+W8+4LZ",
   websiteUrl: "https://www.kalmerkids.com/classes",
-  websiteLabel: "Kalmar Kids Camp",
+  websiteLabel: "Kalmer Kids Camp",
   note: "Nature play, mindfulness & creative calm · Ages 3–8 · 8:45am–2pm",
 };
 
@@ -148,10 +156,7 @@ const TENNIS_INFO = {
 const week0Days: DaySchedule[] = [
   day("2026-07-06", "Mon · Jul 6", [
     block("09:00", "16:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
-    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", {
-      ...BALLET_INFO,
-      note: "Weekly ballet class at Kensington Ballet School",
-    }),
+    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", BALLET_CLASS_INFO),
   ]),
   day("2026-07-07", "Tue · Jul 7", [
     block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
@@ -174,10 +179,7 @@ const week0Days: DaySchedule[] = [
 const week1Days: DaySchedule[] = [
   day("2026-07-13", "Mon · Jul 13", [
     block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
-    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", {
-      ...BALLET_INFO,
-      note: "Weekly ballet class at Kensington Ballet School",
-    }),
+    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", BALLET_CLASS_INFO),
   ]),
   day("2026-07-14", "Tue · Jul 14", [
     block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
@@ -252,11 +254,11 @@ const week2bDays: DaySchedule[] = [
   ]),
 ];
 
-// ── Weeks 5–7: Aug 3–21 2026 — Kalmar Kids (3 weeks) ─────────
+// ── Weeks 5–7: Aug 3–21 2026 — Kalmer Kids (3 weeks) ─────────
 function kalmarWeek(dates: Array<[string, string]>): DaySchedule[] {
   return dates.map(([date, label]) =>
     day(date, label, [
-      block("08:45", "14:00", "calmar-kids", "Kalmar Kids Summer Camp", "🌿", KALMAR_INFO),
+      block("08:45", "14:00", "calmar-kids", "Kalmer Kids Summer Camp", "🌿", KALMAR_INFO),
       block("14:00", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
     ])
   );
@@ -291,7 +293,7 @@ const week5Days: DaySchedule[] = [
   ]),
   day("2026-08-21", "Fri · Aug 21", [
     block("00:00", "23:59", "mallorca", "Mallorca Holiday", "🌴", {
-      note: "Family holiday — away until Oct 31",
+      note: "Family holiday — away until Aug 31",
     }),
   ]),
 ];
@@ -299,10 +301,10 @@ const week5Days: DaySchedule[] = [
 // ── Mallorca Holiday: Aug 20 – Oct 31 2026 ────────────────────
 export const MALLORCA_BLOCK = {
   start: "2026-08-20",
-  end: "2026-10-31",
+  end: "2026-08-31",
   activity: "mallorca" as ActivityType,
   label: "Holiday in Mallorca! 🌴",
-  note: "Family holiday — away from Aug 20 through Oct 31",
+  note: "Family holiday — away from Aug 20 through Aug 31",
 };
 
 export const WEEKS: WeekGroup[] = [
@@ -336,21 +338,21 @@ export const WEEKS: WeekGroup[] = [
   },
   {
     id: "week3",
-    title: "Week 5 — Kalmar Kids Camp",
+    title: "Week 5 — Kalmer Kids Camp",
     subtitle: "August 3 – 7",
     dateRange: "Aug 3–7, 2026",
     days: week3Days,
   },
   {
     id: "week4",
-    title: "Week 6 — Kalmar Kids Camp",
+    title: "Week 6 — Kalmer Kids Camp",
     subtitle: "August 10 – 14",
     dateRange: "Aug 10–14, 2026",
     days: week4Days,
   },
   {
     id: "week5",
-    title: "Week 7 — Kalmar Kids + Mallorca",
+    title: "Week 7 — Kalmer Kids + Mallorca",
     subtitle: "August 17 – 21",
     dateRange: "Aug 17–21, 2026",
     days: week5Days,
