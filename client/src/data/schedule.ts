@@ -221,7 +221,31 @@ const week2Days: DaySchedule[] = [
   ]),
 ];
 
-// ── Weeks 3–5: Aug 4–22 2026 — Kalmar Kids (3 weeks) ─────────
+// ── Week 3: July 27–31 2026 — Dakodas Camp ─────────────────────
+const week2bDays: DaySchedule[] = [
+  day("2026-07-27", "Mon · Jul 27", [
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
+    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+  ]),
+  day("2026-07-28", "Tue · Jul 28", [
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
+    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+  ]),
+  day("2026-07-29", "Wed · Jul 29", [
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
+    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+  ]),
+  day("2026-07-30", "Thu · Jul 30", [
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
+    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+  ]),
+  day("2026-07-31", "Fri · Jul 31", [
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
+    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+  ]),
+];
+
+// ── Weeks 5–7: Aug 3–21 2026 — Kalmar Kids (3 weeks) ─────────
 function kalmarWeek(dates: Array<[string, string]>): DaySchedule[] {
   return dates.map(([date, label]) =>
     day(date, label, [
@@ -297,22 +321,29 @@ export const WEEKS: WeekGroup[] = [
     days: week2Days,
   },
   {
+    id: "week2b",
+    title: "Week 4 — Dakodas Camp",
+    subtitle: "July 27 – 31",
+    dateRange: "Jul 27–31, 2026",
+    days: week2bDays,
+  },
+  {
     id: "week3",
-    title: "Week 4 — Kalmar Kids Camp",
+    title: "Week 5 — Kalmar Kids Camp",
     subtitle: "August 3 – 7",
     dateRange: "Aug 3–7, 2026",
     days: week3Days,
   },
   {
     id: "week4",
-    title: "Week 5 — Kalmar Kids Camp",
+    title: "Week 6 — Kalmar Kids Camp",
     subtitle: "August 10 – 14",
     dateRange: "Aug 10–14, 2026",
     days: week4Days,
   },
   {
     id: "week5",
-    title: "Week 6 — Kalmar Kids + Mallorca",
+    title: "Week 7 — Kalmar Kids + Mallorca",
     subtitle: "August 17 – 21",
     dateRange: "Aug 17–21, 2026",
     days: week5Days,
