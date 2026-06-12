@@ -178,7 +178,7 @@ const DAKODAS_SAT_INFO = {
   },
 };
 
-const WEEKEND_TBC_NOTE = { note: "TBC — Paw Patrol / Soho Farmhouse / Soho Babington / York" };
+const WEEKEND_TBC_NOTE = { note: "TBC — Farmhouse / Babington House / Paw Patrol Park" };
 
 // ── Weekend days ──────────────────────────────────────────────
 // Saturdays: Dakodas 10-11:30am until Jul 11; then TBC
@@ -186,22 +186,13 @@ const WEEKEND_TBC_NOTE = { note: "TBC — Paw Patrol / Soho Farmhouse / Soho Bab
 
 const weekendsByWeek: Record<string, DaySchedule[]> = {
   week0: [
-    // Jul 5 (Sat) — Dakodas Saturday
-    day("2026-07-04", "Sat · Jul 4", [
-      block("10:00", "11:30", "summer-camp", "Dakodas Saturday", "☀️", DAKODAS_SAT_INFO),
-    ]),
-    // Jul 6 (Sun) — NWG
-    day("2026-07-05", "Sun · Jul 5", [
-      block("09:45", "10:35", "nwg", "NWG Gymnastics", "🤸", NWG_INFO),
-      block("10:35", "12:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
-    ]),
-    // Weekend of Jul 11-12
+    // Weekend of Jul 11-12 (first weekend after Jul 6 start)
     day("2026-07-11", "Sat · Jul 11", [
       block("10:00", "11:30", "summer-camp", "Dakodas Saturday (Last)", "☀️", { ...DAKODAS_SAT_INFO, note: "Last Saturday Dakodas session · 10:00–11:30am" }),
     ]),
     day("2026-07-12", "Sun · Jul 12", [
       block("09:45", "10:35", "nwg", "NWG Gymnastics", "🤸", NWG_INFO),
-      block("10:35", "12:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+      block("10:35", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
     ]),
   ],
   week1: [

@@ -71,7 +71,7 @@ function LegendPill({ type }: { type: ActivityType }) {
 function VenueCard({ venue }: { venue: typeof VENUE_REFS[0] }) {
   const meta = ACTIVITY_META[venue.activity];
   return (
-    <div className={`rounded-2xl border-2 ${meta.border} bg-white shadow-sm overflow-hidden`}>
+    <div className={`rounded-2xl border-2 ${meta.border} bg-white shadow-sm overflow-hidden flex-shrink-0 w-64 sm:w-72`}>
       {/* Coloured header strip */}
       <div className={`${meta.bg} px-4 py-2 flex items-center gap-2`}>
         <span className="text-lg">{meta.icon}</span>
@@ -219,6 +219,8 @@ function DayColumn({ day }: { day: import("@/data/schedule").DaySchedule }) {
 function WeekCard({ week, index }: { week: import("@/data/schedule").WeekGroup; index: number }) {
   const tints = ["bg-pink-50", "bg-orange-50", "bg-fuchsia-50", "bg-orange-50", "bg-teal-50", "bg-teal-50", "bg-teal-50"];
   const tint = tints[index] ?? "bg-gray-50";
+  const allDays = [...week.days, ...(week.weekendDays ?? [])];
+  const colCount = allDays.length;
 
   return (
     <div
@@ -241,29 +243,20 @@ function WeekCard({ week, index }: { week: import("@/data/schedule").WeekGroup; 
         )}
       </div>
 
-      {/* Weekdays */}
+      {/* Mon–Sun all in one scrollable row */}
       <div className="p-4 overflow-x-auto">
-        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 pl-1">Weekdays</div>
-        <div className="grid grid-cols-5 gap-3 min-w-[640px]">
-          {week.days.map((d) => (
+        <div
+          className="grid gap-3"
+          style={{
+            gridTemplateColumns: `repeat(${colCount}, minmax(130px, 1fr))`,
+            minWidth: colCount >= 7 ? "920px" : "640px",
+          }}
+        >
+          {allDays.map((d) => (
             <DayColumn key={d.date} day={d} />
           ))}
         </div>
       </div>
-
-      {/* Weekend */}
-      {week.weekendDays && week.weekendDays.length > 0 && (
-        <div className="px-4 pb-4 overflow-x-auto border-t border-gray-200/60">
-          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mt-3 mb-2 pl-1">Weekend</div>
-          <div className="flex flex-wrap gap-3">
-            {week.weekendDays.map((d) => (
-              <div key={d.date} className="min-w-[150px] max-w-[220px] flex-1">
-                <DayColumn day={d} />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       <div className="px-6 pb-4 text-xs text-gray-400 flex items-center gap-1">
         <span>ℹ️</span> Tap any activity with an info icon for venue details &amp; links
@@ -345,15 +338,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Venue reference cards ── */}
+        {/* ── Venue reference cards carousel ── */}
         <div
           className="bg-white rounded-3xl border border-gray-200 shadow-sm px-6 py-5"
           style={{ animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both", animationDelay: "140ms" }}
         >
-          <h2 className="text-lg font-bold text-gray-700 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
+          <h2 className="text-lg font-bold text-gray-700 mb-1" style={{ fontFamily: "'Fredoka One', cursive" }}>
             📍 Venues &amp; Booking Links
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <p className="text-xs text-gray-400 mb-4">Swipe to see all venues →</p>
+          <div className="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2" style={{ scrollbarWidth: "none" }}>
             {VENUE_REFS.map((v) => (
               <VenueCard key={v.name} venue={v} />
             ))}
