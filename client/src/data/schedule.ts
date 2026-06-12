@@ -69,7 +69,7 @@ export const ACTIVITY_META: Record<
     bg: "bg-[#26A69A]",
     border: "border-[#26A69A]",
     icon: "🌿",
-    label: "Kalmer Kids Camp",
+    label: "Kalmer Kids",
   },
   mallorca: {
     color: "text-white",
@@ -139,7 +139,7 @@ const KALMAR_INFO = {
   address: "Tadpoles Nursery, The Studio, 8 Hornton Place, Kensington, W8 4LZ",
   addressUrl: "https://maps.google.com/?q=8+Hornton+Place+Kensington+London+W8+4LZ",
   websiteUrl: "https://www.kalmerkids.com/classes",
-  websiteLabel: "Kalmer Kids Camp",
+  websiteLabel: "Kalmer Kids",
   note: "Nature play, mindfulness & creative calm · Ages 3–8 · 8:45am–2pm",
 };
 
@@ -258,7 +258,7 @@ const week2bDays: DaySchedule[] = [
 function kalmarWeek(dates: Array<[string, string]>): DaySchedule[] {
   return dates.map(([date, label]) =>
     day(date, label, [
-      block("08:45", "14:00", "calmar-kids", "Kalmer Kids Summer Camp", "🌿", KALMAR_INFO),
+      block("08:45", "14:00", "calmar-kids", "Kalmer Kids", "🌿", KALMAR_INFO),
       block("14:00", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
     ])
   );
@@ -338,14 +338,14 @@ export const WEEKS: WeekGroup[] = [
   },
   {
     id: "week3",
-    title: "Week 5 — Kalmer Kids Camp",
+    title: "Week 5 — Kalmer Kids",
     subtitle: "August 3 – 7",
     dateRange: "Aug 3–7, 2026",
     days: week3Days,
   },
   {
     id: "week4",
-    title: "Week 6 — Kalmer Kids Camp",
+    title: "Week 6 — Kalmer Kids",
     subtitle: "August 10 – 14",
     dateRange: "Aug 10–14, 2026",
     days: week4Days,
