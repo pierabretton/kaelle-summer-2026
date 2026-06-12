@@ -36,7 +36,7 @@ const VENUE_REFS = [
   },
   {
     activity: "calmar-kids" as ActivityType,
-    name: "Kalmar Kids Camp",
+    name: "Kalmer Kids",
     address: "Tadpoles Nursery, The Studio, 8 Hornton Place, Kensington, W8 4LZ",
     addressUrl: "https://maps.google.com/?q=8+Hornton+Place+Kensington+London+W8+4LZ",
     websiteUrl: "https://www.kalmerkids.com/classes",
