@@ -9,7 +9,8 @@ export type ActivityType =
   | "ballet-camp"
   | "calmar-kids"
   | "mallorca"
-  | "tennis";
+  | "tennis"
+  | "piera";
 
 export interface TimeBlock {
   start: string; // "HH:MM"
@@ -83,6 +84,13 @@ export const ACTIVITY_META: Record<
     border: "border-[#2E7D32]",
     icon: "🎾",
     label: "Teddy Tennis",
+  },
+  piera: {
+    color: "text-white",
+    bg: "bg-[#D81B60]",
+    border: "border-[#D81B60]",
+    icon: "🌸",
+    label: "Piera Holidays",
   },
 };
 
@@ -236,7 +244,33 @@ export const MALLORCA_BLOCK = {
   note: "Family holiday — away from Aug 20 through Oct 31",
 };
 
+// ── Week 0: July 6–10 — Piera Holidays ──────────────────────
+const week0Days: DaySchedule[] = [
+  day("2025-07-06", "Mon · Jul 6", [
+    block("09:00", "18:00", "piera", "Piera Holidays", "🌸", { note: "No nanny this week" }),
+  ]),
+  day("2025-07-07", "Tue · Jul 7", [
+    block("09:00", "18:00", "piera", "Piera Holidays", "🌸", { note: "No nanny this week" }),
+  ]),
+  day("2025-07-08", "Wed · Jul 8", [
+    block("09:00", "18:00", "piera", "Piera Holidays", "🌸", { note: "No nanny this week" }),
+  ]),
+  day("2025-07-09", "Thu · Jul 9", [
+    block("09:00", "18:00", "piera", "Piera Holidays", "🌸", { note: "No nanny this week" }),
+  ]),
+  day("2025-07-10", "Fri · Jul 10", [
+    block("09:00", "18:00", "piera", "Piera Holidays", "🌸", { note: "No nanny this week" }),
+  ]),
+];
+
 export const WEEKS: WeekGroup[] = [
+  {
+    id: "week0",
+    title: "Piera Holidays — No Nanny",
+    subtitle: "July 6 – 10",
+    dateRange: "Jul 6–10, 2025",
+    days: week0Days,
+  },
   {
     id: "week1",
     title: "Week 1 — Summer Camp",

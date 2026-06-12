@@ -170,11 +170,12 @@ function WeekCard({
   index: number;
 }) {
   const tints = [
-    "bg-orange-50",
-    "bg-pink-50",
-    "bg-teal-50",
-    "bg-teal-50",
-    "bg-teal-50",
+    "bg-pink-50",   // week0: Piera
+    "bg-orange-50", // week1: Summer Camp
+    "bg-fuchsia-50", // week2: Ballet
+    "bg-teal-50",   // week3: Kalmar
+    "bg-teal-50",   // week4: Kalmar
+    "bg-teal-50",   // week5: Kalmar
   ];
   const tint = tints[index] ?? "bg-gray-50";
 
@@ -279,7 +280,7 @@ export default function Home() {
               className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight"
               style={{ fontFamily: "'Fredoka One', cursive" }}
             >
-              🌟 Summer 2025 Calendar
+              🌟 Kaelle Sola's Summer 2025
             </h1>
             <p className="text-gray-600 text-base sm:text-lg mt-1 font-medium">
               A fun-filled summer of camps, ballet &amp; adventures!
