@@ -1,12 +1,18 @@
 // ============================================================
 // Design: Modern Playful Storybook
 // Fredoka One display + Poppins body
-// Activity colors: coral, purple, pink, teal, golden
+// Activity colors: coral, purple, pink, teal, golden, green
 // Layout: hero banner → legend → week cards → holiday banner
 // ============================================================
 
 import { useState } from "react";
-import { ACTIVITY_META, WEEKS, MAJORCA_BLOCK, type ActivityType, type TimeBlock } from "@/data/schedule";
+import {
+  ACTIVITY_META,
+  WEEKS,
+  MALLORCA_BLOCK,
+  type ActivityType,
+  type TimeBlock,
+} from "@/data/schedule";
 
 // ── Legend pill ───────────────────────────────────────────────
 function LegendPill({ type }: { type: ActivityType }) {
@@ -21,42 +27,119 @@ function LegendPill({ type }: { type: ActivityType }) {
   );
 }
 
-// ── Time block pill ───────────────────────────────────────────
-function ActivityPill({ block }: { block: TimeBlock }) {
-  const meta = ACTIVITY_META[block.activity];
-  const [hovered, setHovered] = useState(false);
-
+// ── Venue detail popup ────────────────────────────────────────
+function VenuePopup({ block: b, onClose }: { block: TimeBlock; onClose: () => void }) {
+  const meta = ACTIVITY_META[b.activity];
   return (
     <div
-      className="relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
     >
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 z-10"
+        onClick={(e) => e.stopPropagation()}
+        style={{ animation: "popIn 0.2s cubic-bezier(0.23,1,0.32,1) both" }}
+      >
+        {/* Header */}
+        <div className={`flex items-center gap-3 mb-4 p-3 rounded-2xl ${meta.bg}`}>
+          <span className="text-2xl">{b.icon}</span>
+          <div>
+            <div className={`font-bold text-base leading-tight ${meta.color}`}>{b.label}</div>
+            <div className={`text-sm opacity-90 ${meta.color}`}>{b.start} – {b.end}</div>
+          </div>
+          <button
+            onClick={onClose}
+            className="ml-auto text-white/80 hover:text-white text-xl leading-none font-bold"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="space-y-3 text-sm text-gray-700">
+          {/* Note */}
+          {b.note && (
+            <p className="text-gray-600 leading-relaxed">{b.note}</p>
+          )}
+
+          {/* Address */}
+          {b.address && (
+            <div className="flex items-start gap-2">
+              <span className="text-base mt-0.5">📍</span>
+              <div>
+                <div className="font-semibold text-gray-800 text-xs uppercase tracking-wide mb-0.5">Address</div>
+                {b.addressUrl ? (
+                  <a
+                    href={b.addressUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline leading-snug"
+                  >
+                    {b.address}
+                  </a>
+                ) : (
+                  <span>{b.address}</span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Website link */}
+          {b.websiteUrl && (
+            <div className="flex items-center gap-2">
+              <span className="text-base">🔗</span>
+              <div>
+                <div className="font-semibold text-gray-800 text-xs uppercase tracking-wide mb-0.5">Website</div>
+                <a
+                  href={b.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  {b.websiteLabel ?? b.websiteUrl}
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Time block pill ───────────────────────────────────────────
+function ActivityPill({ block: b }: { block: TimeBlock }) {
+  const meta = ACTIVITY_META[b.activity];
+  const [open, setOpen] = useState(false);
+  const hasDetails = !!(b.note || b.address || b.websiteUrl);
+
+  return (
+    <>
       <div
         className={`
           flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold
           ${meta.bg} ${meta.color} shadow-sm
           transition-transform duration-150 ease-out
-          hover:scale-[1.03] cursor-default select-none
+          ${hasDetails ? "hover:scale-[1.03] cursor-pointer" : "cursor-default"}
+          select-none
         `}
+        onClick={() => hasDetails && setOpen(true)}
+        title={hasDetails ? "Click for details" : undefined}
       >
-        <span className="text-base leading-none">{block.icon}</span>
+        <span className="text-base leading-none flex-shrink-0">{b.icon}</span>
         <div className="flex flex-col min-w-0">
-          <span className="leading-tight truncate">{block.label}</span>
+          <span className="leading-tight truncate">{b.label}</span>
           <span className="text-xs font-normal opacity-90 mt-0.5">
-            {block.start} – {block.end}
+            {b.start} – {b.end}
           </span>
         </div>
+        {hasDetails && (
+          <span className="ml-auto text-white/70 text-xs flex-shrink-0">ℹ️</span>
+        )}
       </div>
 
-      {/* Tooltip */}
-      {hovered && block.note && (
-        <div className="absolute bottom-full left-0 mb-2 z-10 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-xl whitespace-nowrap pointer-events-none">
-          {block.note}
-          <div className="absolute top-full left-4 border-4 border-transparent border-t-gray-900" />
-        </div>
-      )}
-    </div>
+      {open && <VenuePopup block={b} onClose={() => setOpen(false)} />}
+    </>
   );
 }
 
@@ -86,7 +169,6 @@ function WeekCard({
   week: import("@/data/schedule").WeekGroup;
   index: number;
 }) {
-  // Pick a soft background tint per week
   const tints = [
     "bg-orange-50",
     "bg-pink-50",
@@ -107,7 +189,10 @@ function WeekCard({
       {/* Card header */}
       <div className="px-6 pt-5 pb-3 border-b border-gray-200/70">
         <div className="flex items-baseline gap-3 flex-wrap">
-          <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "'Fredoka One', cursive" }}>
+          <h2
+            className="text-xl font-bold text-gray-800"
+            style={{ fontFamily: "'Fredoka One', cursive" }}
+          >
             {week.title}
           </h2>
           <span className="text-sm font-medium text-gray-500 bg-white/70 rounded-full px-3 py-0.5 border border-gray-200">
@@ -124,12 +209,17 @@ function WeekCard({
           ))}
         </div>
       </div>
+
+      {/* Tap hint */}
+      <div className="px-6 pb-4 text-xs text-gray-400 flex items-center gap-1">
+        <span>ℹ️</span> Tap any activity with an info icon for venue details &amp; links
+      </div>
     </div>
   );
 }
 
-// ── Majorca holiday banner ────────────────────────────────────
-function MajorcaBanner() {
+// ── Mallorca holiday banner ────────────────────────────────────
+function MallorcaBanner() {
   return (
     <div
       className="rounded-3xl overflow-hidden shadow-lg"
@@ -146,7 +236,7 @@ function MajorcaBanner() {
             className="text-3xl sm:text-4xl font-bold text-white mb-1"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
-            Holiday in Majorca!
+            Holiday in Mallorca!
           </h2>
           <p className="text-white/90 text-lg font-medium">
             August 20 – October 31, 2025
@@ -180,7 +270,6 @@ export default function Home() {
           className="w-full object-cover object-top"
           style={{ maxHeight: 320 }}
         />
-        {/* Overlay title */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div
             className="bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-5 shadow-xl text-center mx-4"
@@ -193,7 +282,7 @@ export default function Home() {
               🌟 Summer 2025 Calendar
             </h1>
             <p className="text-gray-600 text-base sm:text-lg mt-1 font-medium">
-              A fun-filled summer of camps, ballet & adventures!
+              A fun-filled summer of camps, ballet &amp; adventures!
             </p>
           </div>
         </div>
@@ -224,8 +313,8 @@ export default function Home() {
           <WeekCard key={week.id} week={week} index={i} />
         ))}
 
-        {/* ── Majorca holiday ── */}
-        <MajorcaBanner />
+        {/* ── Mallorca holiday ── */}
+        <MallorcaBanner />
 
         {/* ── Footer ── */}
         <footer className="text-center text-gray-400 text-sm pb-6">
@@ -238,6 +327,10 @@ export default function Home() {
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popIn {
+          from { opacity: 0; transform: scale(0.92); }
+          to   { opacity: 1; transform: scale(1); }
         }
       `}</style>
     </div>
