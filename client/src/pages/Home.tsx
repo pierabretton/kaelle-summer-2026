@@ -217,7 +217,7 @@ function DayColumn({ day }: { day: import("@/data/schedule").DaySchedule }) {
 
 // ── Week card ─────────────────────────────────────────────────
 function WeekCard({ week, index }: { week: import("@/data/schedule").WeekGroup; index: number }) {
-  const tints = ["bg-pink-50", "bg-orange-50", "bg-fuchsia-50", "bg-teal-50", "bg-teal-50", "bg-teal-50"];
+  const tints = ["bg-pink-50", "bg-orange-50", "bg-fuchsia-50", "bg-orange-50", "bg-teal-50", "bg-teal-50", "bg-teal-50"];
   const tint = tints[index] ?? "bg-gray-50";
 
   return (
@@ -234,14 +234,37 @@ function WeekCard({ week, index }: { week: import("@/data/schedule").WeekGroup; 
             📅 {week.dateRange}
           </span>
         </div>
+        {week.note && (
+          <div className="mt-2 inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-medium rounded-full px-3 py-1">
+            {week.note}
+          </div>
+        )}
       </div>
+
+      {/* Weekdays */}
       <div className="p-4 overflow-x-auto">
+        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 pl-1">Weekdays</div>
         <div className="grid grid-cols-5 gap-3 min-w-[640px]">
           {week.days.map((d) => (
             <DayColumn key={d.date} day={d} />
           ))}
         </div>
       </div>
+
+      {/* Weekend */}
+      {week.weekendDays && week.weekendDays.length > 0 && (
+        <div className="px-4 pb-4 overflow-x-auto border-t border-gray-200/60">
+          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mt-3 mb-2 pl-1">Weekend</div>
+          <div className="flex flex-wrap gap-3">
+            {week.weekendDays.map((d) => (
+              <div key={d.date} className="min-w-[150px] max-w-[220px] flex-1">
+                <DayColumn day={d} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="px-6 pb-4 text-xs text-gray-400 flex items-center gap-1">
         <span>ℹ️</span> Tap any activity with an info icon for venue details &amp; links
       </div>

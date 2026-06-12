@@ -10,7 +10,9 @@ export type ActivityType =
   | "calmar-kids"
   | "mallorca"
   | "tennis"
-  | "tbc";
+  | "tbc"
+  | "nwg"
+  | "weekend-tbc";
 
 export interface TimeBlock {
   start: string; // "HH:MM"
@@ -37,6 +39,8 @@ export interface WeekGroup {
   subtitle: string;
   dateRange: string;
   days: DaySchedule[];
+  weekendDays?: DaySchedule[];
+  note?: string;
 }
 
 export const ACTIVITY_META: Record<
@@ -92,6 +96,20 @@ export const ACTIVITY_META: Record<
     icon: "🌸",
     label: "Piera's Week",
   },
+  nwg: {
+    color: "text-white",
+    bg: "bg-[#1565C0]",
+    border: "border-[#1565C0]",
+    icon: "🤸",
+    label: "NWG Gymnastics",
+  },
+  "weekend-tbc": {
+    color: "text-gray-700",
+    bg: "bg-[#F5F5F5]",
+    border: "border-[#BDBDBD]",
+    icon: "❓",
+    label: "TBC",
+  },
 };
 
 // ── Helpers ───────────────────────────────────────────────────
@@ -141,6 +159,93 @@ const KALMAR_INFO = {
   websiteUrl: "https://www.kalmerkids.com/classes",
   websiteLabel: "Kalmer Kids",
   note: "Nature play, mindfulness & creative calm · Ages 3–8 · 8:45am–2pm",
+};
+
+const NWG_INFO = {
+  address: "Marlborough Primary School, London",
+  addressUrl: "https://maps.google.com/?q=Marlborough+Primary+School+London",
+  websiteLabel: "NWG Gymnastics",
+  note: "NWG Gymnastics class · Sundays 9:45–10:35am · Marlborough Primary School",
+};
+
+const DAKODAS_SAT_INFO = {
+  ...{
+    address: "More House School, 22-24 Pont Street, Knightsbridge, SW1X 0AA",
+    addressUrl: "https://maps.google.com/?q=22-24+Pont+Street+Knightsbridge+London+SW1X+0AA",
+    websiteUrl: "https://dakodas.co.uk/products/summer-camp-2026-holiday-camps?variant=52749716062540",
+    websiteLabel: "Dakodas Camp",
+    note: "Saturday morning session · 10:00–11:30am",
+  },
+};
+
+const WEEKEND_TBC_NOTE = { note: "TBC — Paw Patrol / Soho Farmhouse / Soho Babington / York" };
+
+// ── Weekend days ──────────────────────────────────────────────
+// Saturdays: Dakodas 10-11:30am until Jul 11; then TBC
+// Sundays: NWG 9:45-10:35am until Jul 19; then TBC
+
+const weekendsByWeek: Record<string, DaySchedule[]> = {
+  week0: [
+    // Jul 5 (Sat) — Dakodas Saturday
+    day("2026-07-04", "Sat · Jul 4", [
+      block("10:00", "11:30", "summer-camp", "Dakodas Saturday", "☀️", DAKODAS_SAT_INFO),
+    ]),
+    // Jul 6 (Sun) — NWG
+    day("2026-07-05", "Sun · Jul 5", [
+      block("09:45", "10:35", "nwg", "NWG Gymnastics", "🤸", NWG_INFO),
+      block("10:35", "12:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    // Weekend of Jul 11-12
+    day("2026-07-11", "Sat · Jul 11", [
+      block("10:00", "11:30", "summer-camp", "Dakodas Saturday (Last)", "☀️", { ...DAKODAS_SAT_INFO, note: "Last Saturday Dakodas session · 10:00–11:30am" }),
+    ]),
+    day("2026-07-12", "Sun · Jul 12", [
+      block("09:45", "10:35", "nwg", "NWG Gymnastics", "🤸", NWG_INFO),
+      block("10:35", "12:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
+  week1: [
+    // Weekend of Jul 18-19 — last NWG Sunday
+    day("2026-07-18", "Sat · Jul 18", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    day("2026-07-19", "Sun · Jul 19", [
+      block("09:45", "10:35", "nwg", "NWG Gymnastics (Last)", "🤸", { ...NWG_INFO, note: "Last NWG class of the season · Sundays 9:45–10:35am" }),
+      block("10:35", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
+  week2: [
+    day("2026-07-25", "Sat · Jul 25", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    day("2026-07-26", "Sun · Jul 26", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
+  week2b: [
+    day("2026-08-01", "Sat · Aug 1", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    day("2026-08-02", "Sun · Aug 2", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
+  week3: [
+    day("2026-08-08", "Sat · Aug 8", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    day("2026-08-09", "Sun · Aug 9", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
+  week4: [
+    day("2026-08-15", "Sat · Aug 15", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+    day("2026-08-16", "Sun · Aug 16", [
+      block("09:00", "18:00", "weekend-tbc", "TBC", "❓", WEEKEND_TBC_NOTE),
+    ]),
+  ],
 };
 
 const TENNIS_INFO = {
@@ -314,6 +419,7 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "July 6 – 10",
     dateRange: "Jul 6–10, 2026",
     days: week0Days,
+    weekendDays: weekendsByWeek.week0,
   },
   {
     id: "week1",
@@ -321,6 +427,7 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "July 13 – 17",
     dateRange: "Jul 13–17, 2026",
     days: week1Days,
+    weekendDays: weekendsByWeek.week1,
   },
   {
     id: "week2",
@@ -328,6 +435,7 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "July 20 – 24",
     dateRange: "Jul 20–24, 2026",
     days: week2Days,
+    weekendDays: weekendsByWeek.week2,
   },
   {
     id: "week2b",
@@ -335,6 +443,8 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "July 27 – 31",
     dateRange: "Jul 27–31, 2026",
     days: week2bDays,
+    weekendDays: weekendsByWeek.week2b,
+    note: "👵 Grandmother arrives Jul 28 — staying until end of August",
   },
   {
     id: "week3",
@@ -342,6 +452,8 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "August 3 – 7",
     dateRange: "Aug 3–7, 2026",
     days: week3Days,
+    weekendDays: weekendsByWeek.week3,
+    note: "👵 Grandmother visiting",
   },
   {
     id: "week4",
@@ -349,6 +461,8 @@ export const WEEKS: WeekGroup[] = [
     subtitle: "August 10 – 14",
     dateRange: "Aug 10–14, 2026",
     days: week4Days,
+    weekendDays: weekendsByWeek.week4,
+    note: "👵 Grandmother visiting",
   },
   {
     id: "week5",
