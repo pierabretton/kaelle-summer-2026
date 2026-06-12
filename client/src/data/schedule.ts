@@ -247,13 +247,23 @@ const week4Days = kalmarWeek([
   ["2026-08-14", "Fri · Aug 14"],
 ]);
 
-const week5Days = kalmarWeek([
-  ["2026-08-17", "Mon · Aug 17"],
-  ["2026-08-18", "Tue · Aug 18"],
-  ["2026-08-19", "Wed · Aug 19"],
-  ["2026-08-20", "Thu · Aug 20"],
-  ["2026-08-21", "Fri · Aug 21"],
-]);
+const week5Days: DaySchedule[] = [
+  ...kalmarWeek([
+    ["2026-08-17", "Mon · Aug 17"],
+    ["2026-08-18", "Tue · Aug 18"],
+    ["2026-08-19", "Wed · Aug 19"],
+  ]),
+  day("2026-08-20", "Thu · Aug 20", [
+    block("00:00", "23:59", "mallorca", "✈️ Flight to Mallorca!", "🌴", {
+      note: "Departing today — family holiday begins! 🌴☀️",
+    }),
+  ]),
+  day("2026-08-21", "Fri · Aug 21", [
+    block("00:00", "23:59", "mallorca", "Mallorca Holiday", "🌴", {
+      note: "Family holiday — away until Oct 31",
+    }),
+  ]),
+];
 
 // ── Mallorca Holiday: Aug 20 – Oct 31 2026 ────────────────────
 export const MALLORCA_BLOCK = {
@@ -302,7 +312,7 @@ export const WEEKS: WeekGroup[] = [
   },
   {
     id: "week5",
-    title: "Week 6 — Kalmar Kids Camp",
+    title: "Week 6 — Kalmar Kids + Mallorca",
     subtitle: "August 17 – 21",
     dateRange: "Aug 17–21, 2026",
     days: week5Days,
