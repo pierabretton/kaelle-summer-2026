@@ -312,10 +312,10 @@ export default function Home() {
             style={{ animation: "fadeSlideUp 0.6s cubic-bezier(0.23,1,0.32,1) both" }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight" style={{ fontFamily: "'Fredoka One', cursive" }}>
-              🌟 Kaelle Sola's Summer 2026
+              🌟 Kaelle Summer Activities 2026
             </h1>
             <p className="text-gray-600 text-base sm:text-lg mt-1 font-medium">
-              A fun-filled summer of camps, ballet &amp; adventures!
+              July 6th to August 31st
             </p>
           </div>
         </div>
