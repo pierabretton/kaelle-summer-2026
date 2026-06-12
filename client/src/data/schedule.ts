@@ -203,7 +203,6 @@ const week2Days: DaySchedule[] = [
   ]),
   day("2026-07-22", "Wed · Jul 22", [
     block("09:00", "12:00", "ballet-camp", "Ballet Camp", "🩰", BALLET_INFO),
-    block("12:00", "15:10", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
     block("15:10", "16:00", "tennis", "Teddy Tennis (Last Wed)", "🎾", {
       ...TENNIS_INFO,
       note: "Last Wednesday tennis class of the season · Court 3, Holland Park W8 6LU",
@@ -215,7 +214,6 @@ const week2Days: DaySchedule[] = [
   ]),
   day("2026-07-24", "Fri · Jul 24", [
     block("09:00", "12:00", "ballet-camp", "Ballet Camp", "🩰", BALLET_INFO),
-    block("12:00", "16:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
     block("16:00", "17:00", "tennis", "Teddy Tennis (Last Fri)", "🎾", {
       ...TENNIS_INFO,
       note: "Last Friday tennis class of the season · Court 3, Holland Park W8 6LU",
