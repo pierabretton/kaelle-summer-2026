@@ -266,8 +266,8 @@ function MallorcaBanner() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Fredoka One', cursive" }}>
             Holiday in Mallorca!
           </h2>
-          <p className="text-white/90 text-lg font-medium">August 20 – October 31, 2026</p>
-          <p className="text-white/75 text-sm mt-1">Family holiday — away for 10 weeks ☀️🏖️</p>
+          <p className="text-white/90 text-lg font-medium">August 20 – 31, 2026</p>
+          <p className="text-white/75 text-sm mt-1">Family holiday — away for 10 days ☀️🏖️</p>
         </div>
         <div className="sm:ml-auto flex gap-3 text-4xl select-none">
           <span>🌊</span><span>🐚</span><span>⛵</span>
