@@ -147,7 +147,11 @@ const TENNIS_INFO = {
 // Wed Jul 8: tennis 3:10–4pm · Fri Jul 10: tennis 4–5pm
 const week0Days: DaySchedule[] = [
   day("2026-07-06", "Mon · Jul 6", [
-    block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
+    block("09:00", "16:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
+    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", {
+      ...BALLET_INFO,
+      note: "Weekly ballet class at Kensington Ballet School",
+    }),
   ]),
   day("2026-07-07", "Tue · Jul 7", [
     block("09:00", "18:00", "tbc", "Piera's Week", "🌸", { note: "No nanny this week" }),
@@ -170,7 +174,10 @@ const week0Days: DaySchedule[] = [
 const week1Days: DaySchedule[] = [
   day("2026-07-13", "Mon · Jul 13", [
     block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
-    block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
+    block("16:00", "17:00", "ballet-camp", "Ballet Class", "🩰", {
+      ...BALLET_INFO,
+      note: "Weekly ballet class at Kensington Ballet School",
+    }),
   ]),
   day("2026-07-14", "Tue · Jul 14", [
     block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
