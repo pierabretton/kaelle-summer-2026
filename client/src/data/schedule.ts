@@ -48,7 +48,7 @@ export const ACTIVITY_META: Record<
     bg: "bg-[#FF7B54]",
     border: "border-[#FF7B54]",
     icon: "☀️",
-    label: "Summer Camp",
+    label: "Dakodas Camp",
   },
   "purple-dragon": {
     color: "text-white",
@@ -115,7 +115,7 @@ const DAKODAS_INFO = {
   address: "More House School, 22-24 Pont Street, Knightsbridge, SW1X 0AA",
   addressUrl: "https://maps.google.com/?q=22-24+Pont+Street+Knightsbridge+London+SW1X+0AA",
   websiteUrl: "https://dakodas.co.uk/products/summer-camp-2026-holiday-camps?variant=52749716062540",
-  websiteLabel: "Dakodas Summer Camp",
+  websiteLabel: "Dakodas Camp",
   note: "Performing arts holiday camp · Ages 4–17 · Dance, drama, acrobatics & musical theatre",
 };
 
@@ -169,23 +169,23 @@ const week0Days: DaySchedule[] = [
 // Wed Jul 15: tennis 3:10–4pm · Fri Jul 17: tennis 4–5pm
 const week1Days: DaySchedule[] = [
   day("2026-07-13", "Mon · Jul 13", [
-    block("09:00", "15:30", "summer-camp", "Summer Camp", "☀️", DAKODAS_INFO),
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
     block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
   ]),
   day("2026-07-14", "Tue · Jul 14", [
-    block("09:00", "15:30", "summer-camp", "Summer Camp", "☀️", DAKODAS_INFO),
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
     block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
   ]),
   day("2026-07-15", "Wed · Jul 15", [
-    block("09:00", "15:30", "summer-camp", "Summer Camp", "☀️", DAKODAS_INFO),
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
     block("15:10", "16:00", "tennis", "Teddy Tennis", "🎾", TENNIS_INFO),
   ]),
   day("2026-07-16", "Thu · Jul 16", [
-    block("09:00", "15:30", "summer-camp", "Summer Camp", "☀️", DAKODAS_INFO),
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
     block("15:30", "18:00", "purple-dragon", "Purple Dragon with Nanny", "🐉"),
   ]),
   day("2026-07-17", "Fri · Jul 17", [
-    block("09:00", "15:30", "summer-camp", "Summer Camp", "☀️", DAKODAS_INFO),
+    block("09:00", "15:30", "summer-camp", "Dakodas Camp", "☀️", DAKODAS_INFO),
     block("16:00", "17:00", "tennis", "Teddy Tennis", "🎾", TENNIS_INFO),
   ]),
 ];
@@ -276,7 +276,7 @@ export const WEEKS: WeekGroup[] = [
   },
   {
     id: "week1",
-    title: "Week 1 — Summer Camp",
+    title: "Week 1 — Dakodas Camp",
     subtitle: "July 13 – 17",
     dateRange: "Jul 13–17, 2026",
     days: week1Days,

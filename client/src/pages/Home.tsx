@@ -18,7 +18,7 @@ import {
 const VENUE_REFS = [
   {
     activity: "summer-camp" as ActivityType,
-    name: "Dakodas Summer Camp",
+    name: "Dakodas Camp",
     address: "More House School, 22-24 Pont Street, Knightsbridge, SW1X 0AA",
     addressUrl: "https://maps.google.com/?q=22-24+Pont+Street+Knightsbridge+London+SW1X+0AA",
     websiteUrl: "https://dakodas.co.uk/products/summer-camp-2026-holiday-camps?variant=52749716062540",
