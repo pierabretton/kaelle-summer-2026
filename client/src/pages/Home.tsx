@@ -13,6 +13,7 @@ import {
   type ActivityType,
   type TimeBlock,
 } from "@/data/schedule";
+import NavHeader from "@/components/NavHeader";
 
 // ── All venue reference data ──────────────────────────────────
 const VENUE_REFS = [
@@ -297,6 +298,8 @@ function MallorcaBanner() {
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: "#FAFAF8", fontFamily: "'Poppins', sans-serif" }}>
+
+      <NavHeader />
 
       {/* ── Hero banner ── */}
       <div className="relative w-full overflow-hidden" style={{ maxHeight: 320 }}>
