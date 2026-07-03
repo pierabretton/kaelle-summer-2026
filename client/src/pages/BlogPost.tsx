@@ -182,46 +182,77 @@ function AffiliateSection({ links }: { links: AffiliateLink[] }) {
   return (
     <section className="mb-10">
       <h2
-        className="text-2xl font-bold text-gray-800 mb-2"
+        className="text-2xl font-bold text-gray-800 mb-1"
         style={{ fontFamily: "'Fredoka One', cursive" }}
       >
         🛍️ What We Actually Use
       </h2>
       <p
-        className="text-sm text-gray-500 mb-4"
+        className="text-sm text-gray-400 mb-5"
         style={{ fontFamily: "'Poppins', sans-serif" }}
       >
-        These are the products we genuinely use across Kaelle's activities. Some links are affiliate links — if you buy through them, we earn a small commission at no extra cost to you.
+        These are products we genuinely use with Kaelle. Some links are affiliate links — if you buy through them, we earn a small commission at no extra cost to you.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {links.map((link) => (
           <a
             key={link.label}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start gap-3 bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-pink-200 transition-all"
+            className="group bg-white border border-pink-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-pink-300 transition-all flex flex-col"
           >
-            <span className="text-2xl mt-0.5">🛒</span>
-            <div>
+            {/* Product image */}
+            {link.image && (
+              <div className="w-full bg-pink-50 flex items-center justify-center" style={{ height: "180px" }}>
+                <img
+                  src={link.image}
+                  alt={link.label}
+                  className="max-h-full max-w-full object-contain p-3"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div className="p-4 flex flex-col flex-1">
+              {/* Badge */}
+              {link.badge && (
+                <span
+                  className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-2 w-fit"
+                  style={{ background: "#fce7f3", color: "#be185d", fontFamily: "'Poppins', sans-serif" }}
+                >
+                  ♥️ {link.badge}
+                </span>
+              )}
+              {/* Name + price row */}
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <p
+                  className="font-bold text-gray-800 text-sm leading-snug group-hover:text-pink-700 transition-colors"
+                  style={{ fontFamily: "'Fredoka One', cursive", fontSize: "1rem" }}
+                >
+                  {link.label}
+                </p>
+                {link.price && (
+                  <span
+                    className="text-sm font-bold flex-shrink-0"
+                    style={{ color: "#be185d", fontFamily: "'Poppins', sans-serif" }}
+                  >
+                    {link.price}
+                  </span>
+                )}
+              </div>
               <p
-                className="font-semibold text-gray-800 text-sm group-hover:text-pink-700 transition-colors"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                {link.label}
-              </p>
-              <p
-                className="text-xs text-gray-500 mt-0.5"
+                className="text-xs text-gray-500 leading-relaxed mb-3 flex-1"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 {link.description}
               </p>
-              <p
-                className="text-xs text-pink-500 mt-1 font-medium"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+              {/* Shop button */}
+              <div
+                className="text-xs font-semibold text-white rounded-full px-3 py-1.5 text-center w-full mt-auto"
+                style={{ background: "#db2777", fontFamily: "'Poppins', sans-serif" }}
               >
-                via {link.retailer} →
-              </p>
+                Shop at {link.retailer} →
+              </div>
             </div>
           </a>
         ))}

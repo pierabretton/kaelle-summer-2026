@@ -13,6 +13,9 @@ export interface AffiliateLink {
   url: string;
   retailer: string;
   description: string;
+  price?: string;       // e.g. "£35.00"
+  image?: string;       // path to local product image
+  badge?: string;       // e.g. "Kaelle wears this" or "As seen on Kaelle"
 }
 
 export interface CampEntry {
@@ -166,28 +169,22 @@ export const POSTS: BlogPost[] = [
     ],
     affiliateLinks: [
       {
-        label: "Toddler Tennis Racket",
-        url: "https://www.amazon.co.uk/s?k=toddler+tennis+racket",
-        retailer: "Amazon UK",
-        description: "The racket Kaelle uses for Teddy Tennis — lightweight and the right grip size for small hands.",
+        label: "Sparkle the Unicorn Tennis Kit",
+        url: "https://roarsome.com/products/sparkle-the-unicorn-tennis-kit?variant=52078464499996&country=GB&currency=GBP",
+        retailer: "Roarsome",
+        description: "The exact tennis kit Kaelle wears at Teddy Tennis. Top + wings + pleated skirt with inner shorts. Made from 100% recycled moisture-wicking fabric. Sizes 3–4 up to 8–10.",
+        price: "£35.00",
+        image: "/images/roarsome-sparkle-tennis-kit.webp",
+        badge: "Kaelle wears this",
       },
       {
-        label: "Ballet Leotard & Skirt Set",
-        url: "https://www.trotters.co.uk",
+        label: "Bloch Desdemona Tutu",
+        url: "https://www.trotters.co.uk/products/bloch-desdemona-tutu?variant=8970833428541",
         retailer: "Trotters",
-        description: "Trotters has the best quality ballet kit for little ones — it washes well and lasts the whole term.",
-      },
-      {
-        label: "Gymnastics Leotard",
-        url: "https://www.amazon.co.uk/s?k=girls+gymnastics+leotard+toddler",
-        retailer: "Amazon UK",
-        description: "Comfortable, stretchy, and easy to get on and off for the gymnastics changing room rush.",
-      },
-      {
-        label: "Kids' Sports Bag",
-        url: "https://www.amazon.co.uk/s?k=kids+sports+bag+toddler",
-        retailer: "Amazon UK",
-        description: "Kaelle carries her own bag to every session — it builds independence and she loves choosing what goes in it.",
+        description: "The tutu leotard Kaelle wears to Kensington Ballet. Fine straps, three-layer tulle skirt, and just the right amount of poof. Note: comes up small — size up. Rated 5 stars.",
+        price: "£34.00",
+        image: "/images/trotters-bloch-tutu.webp",
+        badge: "Kaelle wears this",
       },
     ],
   },
