@@ -1,5 +1,6 @@
 // ============================================================
 // NavHeader — Shared navigation for all pages
+// Routes: / (home)  /blog  /summer-2026
 // ============================================================
 
 import { Link, useLocation } from "wouter";
@@ -8,19 +9,20 @@ export default function NavHeader() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "Summer 2026", emoji: "🌟" },
     { href: "/blog", label: "Blog", emoji: "✍️" },
+    { href: "/summer-2026", label: "Summer 2026", emoji: "🌟" },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+
         {/* Logo / Brand */}
         <Link href="/">
           <span className="flex items-center gap-2 cursor-pointer group">
             <span className="text-xl">🌸</span>
             <span
-              className="font-bold text-gray-800 text-sm sm:text-base"
+              className="font-bold text-gray-800 text-sm sm:text-base group-hover:text-pink-600 transition-colors"
               style={{ fontFamily: "'Fredoka One', cursive" }}
             >
               Raising Kaelle
