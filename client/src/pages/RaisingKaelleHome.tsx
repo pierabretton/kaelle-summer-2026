@@ -344,8 +344,9 @@ export default function RaisingKaelleHome() {
         {/* ── Photo mosaic ── */}
         <PhotoMosaic />
 
-        {/* ── Kiki & the Mews ── */}
+        {/* ── Kiki & the Mews ── hidden until book launch
         <KikiSection />
+        */}
 
         {/* ── Featured post ── */}
         <section>
