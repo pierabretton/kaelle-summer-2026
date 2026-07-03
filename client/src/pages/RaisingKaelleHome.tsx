@@ -51,13 +51,11 @@ function HeritageStrip() {
 
 // ── Photo mosaic ──────────────────────────────────────────────
 function PhotoMosaic() {
+  // Only photos where Kaelle has sunglasses/goggles — keeps her face private
   const photos = [
-    { src: "/images/kaelle-skiing2.webp", alt: "Kaelle at ski school in Val Thorens", caption: "Ski school, Val Thorens" },
-    { src: "/images/kaelle-snow.webp", alt: "Kaelle playing in the snow", caption: "Silver suit energy" },
-    { src: "/images/kaelle-skiing1.webp", alt: "Kaelle in unicorn ski helmet", caption: "Unicorn helmet approved" },
-    { src: "/images/kaelle-pottery.jpg", alt: "Kaelle doing pottery", caption: "Pottery class" },
-    { src: "/images/kaelle-mirror.webp", alt: "Kaelle doing her makeup", caption: "Very serious business" },
-    { src: "/images/kaelle-skiing3.webp", alt: "Kaelle with dad at ski slope", caption: "First runs with Papa" },
+    { src: "/images/kaelle-skiing1.webp", alt: "Kaelle in unicorn ski helmet and goggles", caption: "Unicorn helmet approved" },
+    { src: "/images/kaelle-snow.webp", alt: "Kaelle in silver suit with pink sunglasses", caption: "Silver suit energy" },
+    { src: "/images/kaelle-skiing2.webp", alt: "Kaelle at ski school with goggles", caption: "Ski school, Val Thorens" },
   ];
 
   return (
@@ -134,12 +132,12 @@ function KikiSection() {
           />
         </div>
 
-        {/* Character cards */}
+        {/* Character cards — fixed equal height, object-contain so no character is cropped larger */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {characters.map((c) => (
             <div key={c.name} className="bg-white/80 rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-full aspect-square rounded-xl overflow-hidden mb-2 bg-lavender-50">
-                <img src={c.src} alt={c.name} className="w-full h-full object-cover object-top" loading="lazy" />
+              <div className="w-full rounded-xl overflow-hidden mb-2 flex items-end justify-center" style={{ height: "160px", background: "rgba(237,233,254,0.4)" }}>
+                <img src={c.src} alt={c.name} className="max-h-full max-w-full object-contain" loading="lazy" style={{ display: "block" }} />
               </div>
               <p className="font-bold text-sm" style={{ fontFamily: "'Fredoka One', cursive", color: P.navy }}>{c.name}</p>
               <p className="text-xs font-semibold mb-1" style={{ color: P.pinkDeep, fontFamily: "'Poppins', sans-serif" }}>{c.role}</p>
@@ -321,7 +319,7 @@ export default function RaisingKaelleHome() {
         {/* ── Who is Kaelle ── */}
         <section className="bg-white rounded-3xl border shadow-sm px-6 sm:px-8 py-7" style={{ borderColor: P.pinkMid, animation: "fadeSlideUp 0.5s cubic-bezier(0.23,1,0.32,1) both", animationDelay: "80ms" }}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className="text-5xl select-none flex-shrink-0">👧🏽</div>
+            <div className="text-5xl select-none flex-shrink-0">⭐</div>
             <div>
               <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Fredoka One', cursive", color: P.stoneDark }}>Who is Kaelle?</h2>
               <p className="text-sm leading-relaxed max-w-xl" style={{ color: P.stone, fontFamily: "'Poppins', sans-serif" }}>
