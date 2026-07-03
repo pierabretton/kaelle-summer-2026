@@ -423,8 +423,7 @@ export default function BlogPost() {
           <Link href="/blog">
             <span
               className="inline-flex items-center gap-2 text-sm font-semibold cursor-pointer transition-colors"
-              style={{ color: "#C1694F" }}
-              style={{ fontFamily: "'Poppins', sans-serif" }}
+              style={{ color: "#DB2777", fontFamily: "'Poppins', sans-serif" }}
             >
               ← Back to all posts
             </span>
