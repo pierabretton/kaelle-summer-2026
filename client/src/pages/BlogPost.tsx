@@ -256,16 +256,16 @@ export default function BlogPost() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50/30 to-white">
+    <div className="min-h-screen" style={{ background: "#FAF8F5" }}>
       <NavHeader />
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-16">
 
         {/* Breadcrumb */}
         <nav className="mb-6 text-xs text-gray-400 flex items-center gap-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          <Link href="/"><span className="hover:text-pink-600 cursor-pointer transition-colors">Home</span></Link>
+          <Link href="/"><span className="cursor-pointer transition-colors" style={{ color: "inherit" }} onMouseEnter={e => (e.currentTarget.style.color='#C1694F')} onMouseLeave={e => (e.currentTarget.style.color='')}>Home</span></Link>
           <span>›</span>
-          <Link href="/blog"><span className="hover:text-pink-600 cursor-pointer transition-colors">Blog</span></Link>
+          <Link href="/blog"><span className="cursor-pointer transition-colors" onMouseEnter={e => (e.currentTarget.style.color='#C1694F')} onMouseLeave={e => (e.currentTarget.style.color='')}>Blog</span></Link>
           <span>›</span>
           <span className="text-gray-600 truncate max-w-xs">{post.category}</span>
         </nav>
@@ -273,21 +273,21 @@ export default function BlogPost() {
         {/* Header */}
         <header className="mb-8">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-semibold uppercase tracking-wide text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <span className="text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full" style={{ color: "#C1694F", background: "#FDF0EC", fontFamily: "'Poppins', sans-serif" }}>
               {post.category}
             </span>
             <span className="text-xs text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>{post.readTime}</span>
           </div>
 
           <h1
-            className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-3"
+            className="text-2xl sm:text-3xl font-bold text-stone-800 leading-snug mb-3"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
             {post.heroEmoji} {post.title}
           </h1>
 
           <p
-            className="text-base text-gray-500 leading-relaxed mb-4"
+            className="text-base text-stone-500 leading-relaxed mb-4"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             {post.subtitle}
@@ -303,16 +303,16 @@ export default function BlogPost() {
         </header>
 
         {/* BLUF Box — AEO anchor */}
-        <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-5 mb-8">
+        <div className="rounded-2xl p-5 mb-8 border-2" style={{ background: "#FEFBF3", borderColor: "#D4B96A" }}>
           <p
-            className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-2"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+            className="text-xs font-bold uppercase tracking-wide mb-2"
+            style={{ color: "#A07C30", fontFamily: "'Poppins', sans-serif" }}
           >
             ⚡ Bottom Line Up Front
           </p>
           <p
-            className="text-sm text-amber-900 leading-relaxed"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+            className="text-sm leading-relaxed"
+            style={{ color: "#6B5320", fontFamily: "'Poppins', sans-serif" }}
           >
             {post.bluf}
           </p>
@@ -321,13 +321,13 @@ export default function BlogPost() {
         {/* Opening narrative */}
         <section className="mb-8 prose prose-sm max-w-none" style={{ fontFamily: "'Poppins', sans-serif" }}>
           <h2
-            className="text-2xl font-bold text-gray-800 mb-3"
+            className="text-2xl font-bold text-stone-800 mb-3"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
             Why Finding Camps in London Is Harder Than It Looks
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Raising a child in London is not easy. When you grow up in Latin America, there is an entire ecosystem of family support built into the culture. Grandparents, aunts, and cousins are often just around the corner, ready to help with childcare. In London, that village simply does not exist in the same way. You have to build it yourself.
+            Raising a child in London is not easy. When you grow up in Peru or France, there is an entire ecosystem of family support built into the culture. Grandparents, aunts, and cousins are often just around the corner, ready to help with childcare. In London, that village simply does not exist in the same way. You have to build it yourself.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Add to that the challenge of raising a trilingual child — balancing English, Spanish, and another language — and the mental load becomes immense. We want Kaelle to be fluent, confident, and culturally connected, but that requires constant, intentional effort.
@@ -343,7 +343,7 @@ export default function BlogPost() {
         {/* Camp cards */}
         <section className="mb-8">
           <h2
-            className="text-2xl font-bold text-gray-800 mb-6"
+            className="text-2xl font-bold text-stone-800 mb-6"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
             The 6 Camps That Made Our Summer Work
@@ -359,7 +359,7 @@ export default function BlogPost() {
         {/* Parent village section */}
         <section className="mb-10">
           <h2
-            className="text-2xl font-bold text-gray-800 mb-3"
+            className="text-2xl font-bold text-stone-800 mb-3"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
             The Unexpected Gift: The Parent Village
@@ -379,9 +379,9 @@ export default function BlogPost() {
         </section>
 
         {/* Gleneagles pivot */}
-        <section className="mb-10 bg-blue-50 border border-blue-100 rounded-2xl p-6">
+        <section className="mb-10 rounded-2xl p-6" style={{ background: "#F0F4F7", border: "1px solid #C8D8E4" }}>
           <h2
-            className="text-xl font-bold text-gray-800 mb-3"
+            className="text-xl font-bold text-stone-800 mb-3"
             style={{ fontFamily: "'Fredoka One', cursive" }}
           >
             ✈️ Why We Stayed in London (The Gleneagles Pivot)
@@ -409,7 +409,7 @@ export default function BlogPost() {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1 rounded-full"
+                className="text-xs text-stone-500 bg-stone-50 border border-stone-200 px-3 py-1 rounded-full"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 #{tag.replace(/ /g, "-")}
@@ -422,7 +422,8 @@ export default function BlogPost() {
         <div className="border-t border-gray-100 pt-8">
           <Link href="/blog">
             <span
-              className="inline-flex items-center gap-2 text-sm font-semibold text-pink-600 hover:text-pink-700 cursor-pointer transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold cursor-pointer transition-colors"
+              style={{ color: "#C1694F" }}
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               ← Back to all posts
@@ -432,7 +433,7 @@ export default function BlogPost() {
       </main>
 
       {/* Footer */}
-      <footer className="text-center py-8 text-xs text-gray-400 border-t border-gray-50" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <footer className="text-center py-8 text-xs text-stone-400 border-t border-stone-100" style={{ fontFamily: "'Poppins', sans-serif" }}>
         <p>Raising Kaelle · London · {new Date().getFullYear()}</p>
         <p className="mt-1">Some posts contain affiliate links. We only recommend what we genuinely use.</p>
       </footer>
