@@ -361,7 +361,7 @@ export default function BlogPost() {
             Raising a child in London is not easy. When you grow up in Peru or France, there is an entire ecosystem of family support built into the culture. Grandparents, aunts, and cousins are often just around the corner, ready to help with childcare. In London, that village simply does not exist in the same way. You have to build it yourself.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Add to that the challenge of raising a trilingual child — balancing English, Spanish, and another language — and the mental load becomes immense. We want Kaelle to be fluent, confident, and culturally connected, but that requires constant, intentional effort.
+            Add to that the challenge of raising a trilingual child — balancing English, Spanish, and French — and the mental load becomes immense. We want Kaelle to be fluent, confident, and culturally connected, but that requires constant, intentional effort (which was nothing more than the books we read thought us). She is 3 years old and already teaching us everything we thought we knew about parenting.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             The honest reality is that working full-time while ensuring your child gets the right social interaction and stimulation is exhausting. Lately, building social skills has been more difficult for Kaelle. She has an incredible amount of energy and needs structured environments — sports, puzzles, books — to channel it positively. That is why finding the right summer camps became our lifeline.
