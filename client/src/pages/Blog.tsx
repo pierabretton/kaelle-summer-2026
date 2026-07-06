@@ -82,7 +82,7 @@ export default function Blog() {
             <h1 className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Fredoka One', cursive", color: P.stoneDark }}>The Blog</h1>
           </div>
           <p className="text-sm sm:text-base max-w-xl leading-relaxed mb-4" style={{ color: P.stone, fontFamily: "'Poppins', sans-serif" }}>
-            Honest stories from a French-Peruvian family raising a trilingual child in London. Ages 3–5 and everything in between.
+            Honest stories from raising a trilingual child in London — the activities, the challenges, and everything nobody tells you about parenting without a village.
           </p>
           <div className="flex items-center gap-2 flex-wrap">
             {["🇫🇷 French", "🇵🇪 Peruvian", "🇬🇧 London", "🗣️ EN · ES · FR"].map((item) => (
