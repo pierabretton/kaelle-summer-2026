@@ -7,6 +7,7 @@
 import { useParams, Link } from "wouter";
 import { POSTS, type CampEntry, type AffiliateLink } from "@/data/posts";
 import NavHeader from "@/components/NavHeader";
+import ToddlerCampLunchMenu from "@/components/posts/ToddlerCampLunchMenu";
 
 // ── Camp card ─────────────────────────────────────────────────
 function CampCard({ camp, index }: { camp: CampEntry; index: number }) {
