@@ -115,7 +115,7 @@ function VenuePopup({ block: b, onClose }: { block: TimeBlock; onClose: () => vo
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/40" />
       <div
         className="relative bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 z-10"
         onClick={(e) => e.stopPropagation()}
