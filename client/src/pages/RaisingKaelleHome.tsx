@@ -220,7 +220,7 @@ const UPCOMING = [
   { emoji: "🎨", topic: "Creative play that actually teaches language", tag: "3–5 years", highlight: false },
   { emoji: "🌍", topic: "Raising a trilingual child: the honest guide", tag: "All ages", highlight: false },
   { emoji: "🎒", topic: "Choosing a nursery in London — what nobody tells you", tag: "2–4 years", highlight: false },
-  { emoji: "🥗", topic: "Getting a picky toddler to eat — what worked for us", tag: "3–4 years", highlight: false },
+
   { emoji: "🛏️", topic: "The big bed move — skipping the toddler bed entirely", tag: "2–4 years", highlight: false },
 ];
 
@@ -348,10 +348,14 @@ export default function RaisingKaelleHome() {
         <KikiSection />
         */}
 
-        {/* ── Featured post ── */}
+        {/* ── Published posts ── */}
         <section>
-          <h2 className="text-2xl font-bold mb-5" style={{ fontFamily: "'Fredoka One', cursive", color: P.stoneDark }}>📖 Latest Post</h2>
-          <FeaturedPostCard post={featuredPost} />
+          <h2 className="text-2xl font-bold mb-5" style={{ fontFamily: "'Fredoka One', cursive", color: P.stoneDark }}>📖 Published Posts</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {POSTS.map((post) => (
+              <FeaturedPostCard key={post.slug} post={post} />
+            ))}
+          </div>
         </section>
 
         {/* ── Upcoming posts ── */}

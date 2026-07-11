@@ -349,90 +349,94 @@ export default function BlogPost() {
           </p>
         </div>
 
-        {/* Opening narrative */}
-        <section className="mb-8 prose prose-sm max-w-none" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          <h2
-            className="text-2xl font-bold text-stone-800 mb-3"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
-            Why Finding Camps in London Is Harder Than It Looks
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Raising a child in London is not easy. When you grow up in Peru or France, there is an entire ecosystem of family support built into the culture. Grandparents, aunts, and cousins are often just around the corner, ready to help with childcare. In London, that village simply does not exist in the same way. You have to build it yourself.
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Add to that the challenge of raising a trilingual child — balancing English, Spanish, and French — and the mental load becomes immense. We want Kaelle to be fluent, confident, and culturally connected, but that requires constant, intentional effort (which was nothing more than the books we read thought us). She is 3 years old and already teaching us everything we thought we knew about parenting.
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            The honest reality is that working full-time while ensuring your child gets the right social interaction and stimulation is exhausting. Lately, building social skills has been more difficult for Kaelle. She has an incredible amount of energy and needs structured environments — sports, puzzles, books — to channel it positively. That is why finding the right summer camps became our lifeline.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Camps are not just childcare so we can keep working. They are essential spaces for Kaelle to explore new activities, interact with other kids, and discover what she truly enjoys. Here is exactly how we built our summer survival calendar, the camps we trust, and why they work for a high-energy three-year-old.
-          </p>
-        </section>
+        {/* Content based on slug */}
+        {post.slug === "summer-camps-london-toddlers-3-4" ? (
+          <>
+            <section className="mb-8 prose prose-sm max-w-none" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <h2
+                className="text-2xl font-bold text-stone-800 mb-3"
+                style={{ fontFamily: "'Fredoka One', cursive" }}
+              >
+                Why Finding Camps in London Is Harder Than It Looks
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Raising a child in London is not easy. When you grow up in Peru or France, there is an entire ecosystem of family support built into the culture. Grandparents, aunts, and cousins are often just around the corner, ready to help with childcare. In London, that village simply does not exist in the same way. You have to build it yourself.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Add to this the fact that we are raising Kaelle to be trilingual — speaking English, French, and Spanish. It is a beautiful gift, but it requires constant effort to ensure she gets exposure to all three languages.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                The honest reality is that working full-time while ensuring your child gets the right social interaction and stimulation is exhausting. Lately, building social skills has been more difficult for Kaelle. She has an incredible amount of energy and needs structured environments — sports, puzzles, books — to channel it positively. That is why finding the right summer camps became our lifeline.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Camps are not just childcare so we can keep working. They are essential spaces for Kaelle to explore new activities, interact with other kids, and discover what she truly enjoys. Here is exactly how we built our summer survival calendar, the camps we trust, and why they work for a high-energy three-year-old.
+              </p>
+            </section>
 
-        {/* Camp cards */}
-        <section className="mb-8">
-          <h2
-            className="text-2xl font-bold text-stone-800 mb-6"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
-            The 6 Camps That Made Our Summer Work
-          </h2>
-          {post.camps.map((camp, i) => (
-            <CampCard key={camp.id} camp={camp} index={i + 1} />
-          ))}
-        </section>
+            <section className="mb-8">
+              <h2
+                className="text-2xl font-bold text-stone-800 mb-6"
+                style={{ fontFamily: "'Fredoka One', cursive" }}
+              >
+                The 6 Camps That Made Our Summer Work
+              </h2>
+              {post.camps.map((camp, i) => (
+                <CampCard key={camp.id} camp={camp} index={i + 1} />
+              ))}
+            </section>
 
-        {/* Comparison table */}
-        <ComparisonTable camps={post.camps} />
+            <ComparisonTable camps={post.camps} />
 
-        {/* Parent village section */}
-        <section className="mb-10">
-          <h2
-            className="text-2xl font-bold text-stone-800 mb-3"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
-            The Unexpected Gift: The Parent Village
-          </h2>
-          <p
-            className="text-gray-700 leading-relaxed mb-4"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
-          >
-            One of the most profound things we have realised on this journey is that the parents of the other kids are friends that your kids gift to you.
-          </p>
-          <p
-            className="text-gray-700 leading-relaxed"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
-          >
-            When you do not have family nearby, these other parents become your support network. We share the same challenges — the logistical nightmares, the tantrums, the exhaustion — and we celebrate the same small victories. Kaelle now has two friends from Teddy Tennis whose parents have become part of our London village. We are genuinely grateful for that.
-          </p>
-        </section>
+            <section className="mb-10">
+              <h2
+                className="text-2xl font-bold text-stone-800 mb-3"
+                style={{ fontFamily: "'Fredoka One', cursive" }}
+              >
+                The Unexpected Gift: The Parent Village
+              </h2>
+              <p
+                className="text-gray-700 leading-relaxed mb-4"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                One of the most profound things we have realised on this journey is that the parents of the other kids are friends that your kids gift to you.
+              </p>
+              <p
+                className="text-gray-700 leading-relaxed"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                When you do not have family nearby, these other parents become your support network. We share the same challenges — the logistical nightmares, the tantrums, the exhaustion — and we celebrate the same small victories. Kaelle now has two friends from Teddy Tennis whose parents have become part of our London village. We are genuinely grateful for that.
+              </p>
+            </section>
 
-        {/* Gleneagles pivot */}
-        <section className="mb-10 rounded-2xl p-6" style={{ background: "#F0F4F7", border: "1px solid #C8D8E4" }}>
-          <h2
-            className="text-xl font-bold text-stone-800 mb-3"
-            style={{ fontFamily: "'Fredoka One', cursive" }}
-          >
-            ✈️ Why We Stayed in London (The Gleneagles Pivot)
-          </h2>
-          <p
-            className="text-gray-700 leading-relaxed mb-3 text-sm"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
-          >
-            I originally wanted to go somewhere cooler for the summer. I found Gleneagles in Scotland — they have an absolutely incredible family camp with over 50 outdoor activities on an 850-acre estate.
-          </p>
-          <p
-            className="text-gray-700 leading-relaxed text-sm"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
-          >
-            But my mum could not come to London, and my husband just started a new job. The reality of traveling solo with a three-year-old was too daunting. So we stayed in London, and a friend recommended Dukes Meadows Golf in Chiswick as the substitute. Sometimes the best plan is the one you make when the original plan falls apart.
-          </p>
-        </section>
+            <section className="mb-10 rounded-2xl p-6" style={{ background: "#F0F4F7", border: "1px solid #C8D8E4" }}>
+              <h2
+                className="text-xl font-bold text-stone-800 mb-3"
+                style={{ fontFamily: "'Fredoka One', cursive" }}
+              >
+                ✈️ Why We Stayed in London (The Gleneagles Pivot)
+              </h2>
+              <p
+                className="text-gray-700 leading-relaxed mb-3 text-sm"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                I originally wanted to go somewhere cooler for the summer. I found Gleneagles in Scotland — they have an absolutely incredible family camp with over 50 outdoor activities on an 850-acre estate.
+              </p>
+              <p
+                className="text-gray-700 leading-relaxed text-sm"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                But my mum could not come to London, and my husband just started a new job. The reality of traveling solo with a three-year-old was too daunting. So we stayed in London, and a friend recommended Dukes Meadows Golf in Chiswick as the substitute. Sometimes the best plan is the one you make when the original plan falls apart.
+              </p>
+            </section>
+          </>
+        ) : post.slug === "toddler-camp-lunch-menu-hidden-veg-pasta" ? (
+          <ToddlerCampLunchMenu />
+        ) : null}
 
         {/* Affiliate section */}
-        <AffiliateSection links={post.affiliateLinks} />
+        {post.affiliateLinks && post.affiliateLinks.length > 0 && (
+          <AffiliateSection links={post.affiliateLinks} />
+        )}
 
         {/* Tags */}
         <section className="mb-10">

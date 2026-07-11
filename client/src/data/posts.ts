@@ -197,4 +197,18 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "toddler-camp-lunch-menu-hidden-veg-pasta",
+    title: "What I Pack for Kaelle's Summer Camp: A Full Week of Toddler-Approved Lunches",
+    subtitle: "A 5-day menu featuring the famous 'hidden veg' green pasta that makes her eat a whole broccoli without knowing.",
+    publishDate: "2026-07-06",
+    readTime: "4 min read",
+    category: "Food & Nutrition",
+    tags: ["toddler lunches", "hidden veg recipes", "summer camp lunches", "picky eaters", "broccoli pasta for toddlers", "lunchbox ideas"],
+    metaDescription: "A complete 5-day summer camp lunch and snack menu for a picky 3-year-old. Includes our lifesaver recipe for 'green pasta' — a hidden-veg sauce made with broccoli, spinach, halloumi, and milk.",
+    bluf: "Packing a lunchbox for a 3-year-old who doesn't love vegetables is a daily negotiation. This 5-day camp menu relies on safe, familiar proteins (chicken, pork, cheese) and one major hack: a 'green pasta' sauce made of blended broccoli, spinach, halloumi, and milk. She eats an entire head of broccoli without noticing. If you have a picky eater, steal this menu.",
+    heroEmoji: "🍱",
+    camps: [],
+    affiliateLinks: [],
+  },
 ];
