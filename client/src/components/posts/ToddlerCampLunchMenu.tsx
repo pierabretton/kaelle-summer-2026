@@ -2,124 +2,194 @@ import React from "react";
 
 export default function ToddlerCampLunchMenu() {
   return (
-    <div className="prose prose-pink max-w-none">
-      <p className="text-lg leading-relaxed text-gray-700">
-        Sending a three-year-old off to a full day of summer camp is stressful enough without worrying about whether they are actually going to eat their lunch. Kaelle is currently in a phase where visible vegetables are viewed with deep suspicion. If it's green and on a plate, it's a negotiation.
+    <div style={{ fontFamily: "'Poppins', sans-serif" }}>
+
+      {/* Opening */}
+      <p className="text-lg leading-relaxed text-gray-700 mb-5">
+        If you have a toddler who turns their nose up at anything green, you already know the daily negotiation. You put a plate down. They look at it. They look at you. The broccoli sits there like an accusation.
+      </p>
+      <p className="text-lg leading-relaxed text-gray-700 mb-5">
+        Kaelle is not a vegetable lover. She never has been. But she needs them — especially on long camp days when she is running, jumping, and dancing for six hours straight. So we started experimenting. Not with tricks or pressure, but with genuinely finding new ways to give her vegetables that she would actually enjoy eating.
+      </p>
+      <p className="text-lg leading-relaxed text-gray-700 mb-8">
+        The breakthrough came with a green pasta sauce. It looks like pesto. It tastes creamy and cheesy. And it contains an entire head of broccoli. She has no idea. She asks for seconds.
       </p>
 
-      <p className="text-lg leading-relaxed text-gray-700 mt-4">
-        But camps are exhausting, and they need proper fuel. Over the last few weeks, we've developed a reliable, five-day rotation of lunches and snacks that actually come home empty. The secret weapon? A "green pasta" sauce that hides an entire head of broccoli.
-      </p>
-
-      <p className="text-lg leading-relaxed text-gray-700 mt-4">
-        Here is exactly what we pack for a week of summer camp.
-      </p>
-
+      {/* The Green Pasta */}
       <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
-        The 5-Day Camp Lunch Menu
+        🥦 The Green Pasta — Our Hidden Veg Lifesaver
       </h2>
-
-      <div className="space-y-6">
-        {/* Monday */}
-        <div className="bg-pink-50 rounded-2xl p-6 border border-pink-100">
-          <h3 className="text-xl font-bold text-pink-600 mb-3 flex items-center gap-2">
-            <span>🗓️</span> Monday
-          </h3>
-          <div className="space-y-2">
-            <p><strong>Snack:</strong> 2 Babybel cheese + fresh blueberries</p>
-            <p><strong>Lunch:</strong> Green Pasta (penne with the hidden broccoli &amp; spinach sauce)</p>
-            <p className="text-sm text-gray-600 italic mt-2">The ultimate Monday win. She eats a full portion of broccoli without knowing.</p>
-          </div>
-        </div>
-
-        {/* Tuesday */}
-        <div className="bg-orange-50 rounded-2xl p-6 border border-orange-100">
-          <h3 className="text-xl font-bold text-orange-600 mb-3 flex items-center gap-2">
-            <span>🗓️</span> Tuesday
-          </h3>
-          <div className="space-y-2">
-            <p><strong>Snack:</strong> 2 Babybel cheese + mandarins</p>
-            <p><strong>Lunch:</strong> Chicken or pork with rice, carrots, and asparagus</p>
-            <p className="text-sm text-gray-600 italic mt-2">Familiar proteins and simple carbs for a heavy physical activity day.</p>
-          </div>
-        </div>
-
-        {/* Wednesday */}
-        <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100">
-          <h3 className="text-xl font-bold text-teal-600 mb-3 flex items-center gap-2">
-            <span>🗓️</span> Wednesday
-          </h3>
-          <div className="space-y-2">
-            <p><strong>Snack:</strong> 2 Babybel cheese + green grapes (halved lengthways)</p>
-            <p><strong>Lunch:</strong> Pasta with pork or cheese (whichever protein she didn't have on Tuesday)</p>
-          </div>
-        </div>
-
-        {/* Thursday */}
-        <div className="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-          <h3 className="text-xl font-bold text-purple-600 mb-3 flex items-center gap-2">
-            <span>🗓️</span> Thursday
-          </h3>
-          <div className="space-y-2">
-            <p><strong>Snack:</strong> 2 Babybel cheese + strawberries</p>
-            <p><strong>Lunch:</strong> Green Pasta (Round 2)</p>
-            <p className="text-sm text-gray-600 italic mt-2">She genuinely loves this pasta, so repeating it on Thursday guarantees a good lunch.</p>
-          </div>
-        </div>
-
-        {/* Friday */}
-        <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-          <h3 className="text-xl font-bold text-blue-600 mb-3 flex items-center gap-2">
-            <span>🗓️</span> Friday
-          </h3>
-          <div className="space-y-2">
-            <p><strong>Snack:</strong> 2 Babybel cheese + a mix of leftover fruit from the week</p>
-            <p><strong>Lunch:</strong> Pitta bread with guacamole</p>
-            <p className="text-sm text-gray-600 italic mt-2">A fun, easy-to-eat Friday lunch that feels a bit like a treat.</p>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="text-2xl font-bold text-gray-800 mt-12 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
-        The "Hidden Veg" Green Pasta Recipe
-      </h2>
-
-      <p className="text-lg leading-relaxed text-gray-700 mb-6">
-        This is the holy grail of our lunchbox rotation. It looks like pesto, tastes creamy and cheesy, and hides an astonishing amount of vegetables. The halloumi provides the salty kick that toddlers love, masking any bitterness from the greens.
+      <p className="text-base leading-relaxed text-gray-700 mb-6">
+        The idea was simple: blend the vegetables into the sauce so completely that they become invisible. The secret ingredient that makes it work is halloumi. It gives the sauce a salty, creamy richness that toddlers love, and it completely masks any bitterness from the greens. The result is a vibrant green pasta that Kaelle genuinely asks for by name.
       </p>
 
-      <div className="bg-white rounded-2xl p-8 border-2 border-green-100 shadow-sm">
-        <h3 className="text-xl font-bold text-green-700 mb-4">Ingredients</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-6">
-          <li>1 whole head of broccoli (florets and tender parts of the stem)</li>
-          <li>A large handful of fresh spinach</li>
-          <li>Half a block of halloumi cheese, grated or cubed</li>
-          <li>A splash of whole milk (just enough to blend)</li>
-          <li>Pasta of choice (we use penne or fusilli as it holds the sauce well)</li>
-        </ul>
+      <div className="bg-white rounded-2xl p-8 border-2 border-green-100 shadow-sm mb-10">
+        <h3 className="text-xl font-bold text-green-700 mb-5 flex items-center gap-2">
+          <span>📋</span> The Recipe
+        </h3>
 
-        <h3 className="text-xl font-bold text-green-700 mb-4">Method</h3>
-        <ol className="list-decimal pl-5 space-y-3 text-gray-700">
-          <li><strong>Steam the veg:</strong> Steam the broccoli florets until very soft. Throw the spinach in for the last 60 seconds just to wilt it.</li>
-          <li><strong>Blend:</strong> Transfer the warm broccoli and spinach to a blender. Add the halloumi and a splash of milk.</li>
-          <li><strong>Blitz to a sauce:</strong> Blend on high until completely smooth and creamy. The heat from the vegetables will start to melt the halloumi. If it's too thick, add a tiny bit more milk or pasta water.</li>
-          <li><strong>Mix:</strong> Stir the warm green sauce through freshly cooked pasta.</li>
-        </ol>
-        
-        <div className="mt-6 bg-green-50 p-4 rounded-xl border border-green-200">
+        <div className="mb-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide text-gray-500 mb-3">Ingredients</h4>
+          <ul className="space-y-2 text-gray-700 text-sm">
+            <li className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">•</span> 1 whole head of broccoli (florets and the tender part of the stem)</li>
+            <li className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">•</span> A large handful of fresh spinach</li>
+            <li className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">•</span> Half a block of halloumi cheese, roughly cubed</li>
+            <li className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">•</span> A splash of whole milk (just enough to help it blend)</li>
+            <li className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">•</span> Pasta of your choice — we use penne or fusilli as it holds the sauce well</li>
+          </ul>
+        </div>
+
+        <div className="mb-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide text-gray-500 mb-3">Method</h4>
+          <ol className="space-y-4 text-gray-700 text-sm">
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold text-xs flex items-center justify-center mt-0.5">1</span>
+              <span><strong>Steam the broccoli</strong> until very soft — you want it completely tender so it blends smoothly. In the last 60 seconds, throw in the spinach just to wilt it.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold text-xs flex items-center justify-center mt-0.5">2</span>
+              <span><strong>Add everything to a blender</strong> — the warm broccoli, the wilted spinach, the halloumi, and a splash of milk.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold text-xs flex items-center justify-center mt-0.5">3</span>
+              <span><strong>Blend on high</strong> until completely smooth and creamy. The heat from the vegetables starts to soften the halloumi. If it is too thick, add a little more milk or a splash of pasta water.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold text-xs flex items-center justify-center mt-0.5">4</span>
+              <span><strong>Stir through freshly cooked pasta</strong> and serve warm.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div className="bg-green-50 p-4 rounded-xl border border-green-200">
           <p className="text-sm text-green-800 font-medium m-0">
-            <strong>Pro tip:</strong> Make a double batch of the sauce and freeze it in silicone ice cube trays. On busy camp mornings, you just boil the pasta and stir in a few frozen sauce cubes.
+            <strong>Batch tip:</strong> Make a double or triple batch of the sauce and freeze it in silicone ice cube trays. On busy camp mornings, you just boil the pasta and stir in a few frozen cubes. Done in 10 minutes.
           </p>
         </div>
       </div>
 
-      <h2 className="text-2xl font-bold text-gray-800 mt-12 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
-        A Note on the Babybel Obsession
+      {/* Why it works */}
+      <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
+        Why It Actually Works
       </h2>
-
-      <p className="text-lg leading-relaxed text-gray-700">
-        You probably noticed the two Babybel cheeses every single day. When you find a healthy, protein-rich snack that your toddler will reliably eat without a fight, you lean into it. They survive perfectly well in a lunchbox, and unwrapping the wax is half the fun for a three-year-old.
+      <p className="text-base leading-relaxed text-gray-700 mb-4">
+        The key is the halloumi. Most hidden veg recipes use cream cheese or butter, which works, but can taste a bit bland. Halloumi has a natural saltiness that toddlers are drawn to, and when blended warm it becomes completely smooth — no texture, no bitterness, just a creamy green sauce that tastes like something you would order at a restaurant.
       </p>
+      <p className="text-base leading-relaxed text-gray-700 mb-8">
+        Kaelle now eats a full head of broccoli in one sitting. She just does not know it. And honestly? We are not going to tell her.
+      </p>
+
+      {/* Full week menu */}
+      <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
+        🍱 Kaelle's Full Camp Week Menu
+      </h2>
+      <p className="text-base leading-relaxed text-gray-700 mb-6">
+        For context, the green pasta is the anchor of the week — we serve it twice because she loves it and it guarantees a good lunch on what are physically demanding days. The rest of the week rotates around simple, familiar proteins and fruit snacks she will reliably eat without a fuss.
+      </p>
+
+      <div className="space-y-4 mb-10">
+
+        {/* Monday */}
+        <div className="bg-pink-50 rounded-2xl p-5 border border-pink-100">
+          <h3 className="text-lg font-bold text-pink-600 mb-3 flex items-center gap-2">
+            <span className="bg-pink-200 text-pink-800 text-xs font-bold px-2 py-0.5 rounded-full">MON</span> Monday
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Snack</p>
+              <p className="text-gray-700">2 Babybel cheese + blueberries</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Lunch</p>
+              <p className="text-gray-700">Green pasta 🥦</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tuesday */}
+        <div className="bg-orange-50 rounded-2xl p-5 border border-orange-100">
+          <h3 className="text-lg font-bold text-orange-600 mb-3 flex items-center gap-2">
+            <span className="bg-orange-200 text-orange-800 text-xs font-bold px-2 py-0.5 rounded-full">TUE</span> Tuesday
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Snack</p>
+              <p className="text-gray-700">2 Babybel cheese + mandarins</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Lunch</p>
+              <p className="text-gray-700">Chicken with rice, carrots & asparagus</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Wednesday */}
+        <div className="bg-teal-50 rounded-2xl p-5 border border-teal-100">
+          <h3 className="text-lg font-bold text-teal-600 mb-3 flex items-center gap-2">
+            <span className="bg-teal-200 text-teal-800 text-xs font-bold px-2 py-0.5 rounded-full">WED</span> Wednesday
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Snack</p>
+              <p className="text-gray-700">2 Babybel cheese + grapes (halved)</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Lunch</p>
+              <p className="text-gray-700">Pasta with pork or cheese</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Thursday */}
+        <div className="bg-purple-50 rounded-2xl p-5 border border-purple-100">
+          <h3 className="text-lg font-bold text-purple-600 mb-3 flex items-center gap-2">
+            <span className="bg-purple-200 text-purple-800 text-xs font-bold px-2 py-0.5 rounded-full">THU</span> Thursday
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Snack</p>
+              <p className="text-gray-700">2 Babybel cheese + strawberries</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Lunch</p>
+              <p className="text-gray-700">Green pasta 🥦 (she loves it — we repeat it)</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Friday */}
+        <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100">
+          <h3 className="text-lg font-bold text-blue-600 mb-3 flex items-center gap-2">
+            <span className="bg-blue-200 text-blue-800 text-xs font-bold px-2 py-0.5 rounded-full">FRI</span> Friday
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Snack</p>
+              <p className="text-gray-700">2 Babybel cheese + mixed fruit</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Lunch</p>
+              <p className="text-gray-700">Pork with pitta & guacamole 🥑</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Closing */}
+      <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4" style={{ fontFamily: "'Fredoka One', cursive" }}>
+        The Bigger Picture
+      </h2>
+      <p className="text-base leading-relaxed text-gray-700 mb-4">
+        Finding new ways to give Kaelle vegetables is not about being clever or sneaky for the sake of it. It is about understanding that toddlers are not refusing vegetables to be difficult — they genuinely experience flavours and textures more intensely than adults do. The job is to meet them where they are.
+      </p>
+      <p className="text-base leading-relaxed text-gray-700 mb-4">
+        The green pasta started as an experiment. It became a weekly staple. And somewhere along the way, Kaelle started asking for it by name — "the green pasta, Maman." She still does not know what is in it. One day she will, and I think she will be proud of herself for eating it.
+      </p>
+      <p className="text-base leading-relaxed text-gray-700">
+        If you try this recipe, let me know how it goes. And if your toddler has a hidden veg trick that actually works, I would genuinely love to hear it.
+      </p>
+
     </div>
   );
 }
